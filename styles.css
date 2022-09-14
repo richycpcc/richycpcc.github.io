@@ -1,0 +1,12 @@
+figure{
+    margin:auto;
+    text-align:center;
+    font-style: italic;
+}
+body{
+    background-color: rgb(180, 172, 204);
+    padding: 40px;
+}
+header{
+    text-align:center;
+}

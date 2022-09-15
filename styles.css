@@ -5,8 +5,12 @@ figure{
 }
 body{
     background-color: rgb(180, 172, 204);
-    padding: 40px;
+    padding: 80px;
 }
 header{
     text-align:center;
+}
+.linktitle{
+font-color:blue;
+font-size:20;
 }

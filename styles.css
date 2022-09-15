@@ -4,13 +4,9 @@ figure{
     font-style: italic;
 }
 body{
-    background-color: rgb(180, 172, 204);
+    background-color: rgb(180, 172, 104);
     padding: 80px;
 }
-header{
+header, h2{
     text-align:center;
-}
-.linktitle{
-font-color:blue;
-font-size:20;
 }

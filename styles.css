@@ -6,7 +6,14 @@ figure{
 body{
     background-color: rgb(180, 172, 104);
     padding: 80px;
+    width: 60%;
+    height: 100vh;
+    margin: auto;
 }
 header, h2{
     text-align:center;
+}
+main{
+    width: 100%;
+    background-color: brown;
 }

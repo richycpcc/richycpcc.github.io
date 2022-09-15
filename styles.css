@@ -5,10 +5,11 @@ figure{
 }
 body{
     background-color: rgb(180, 172, 104);
-    padding: 80px;
+    padding: 20px;
     width: 60%;
     height: 100vh;
     margin: auto;
+    
 }
 header, h2{
     text-align:center;
@@ -16,4 +17,5 @@ header, h2{
 main{
     width: 100%;
     background-color: brown;
+    padding:25px;
 }

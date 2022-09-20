@@ -1,21 +1,38 @@
-figure{
+
+figure
+{
     margin:auto;
     text-align:center;
     font-style: italic;
 }
-body{
+
+body
+{
     background-color: rgb(180, 172, 104);
     padding: 20px;
     width: 60%;
     height: 100vh;
-    margin: auto;
-    
+    margin: auto; 
+    font-family:Tahoma;
 }
-h1, h2{
-    text-align:center;
+
+h1, h2
+{
+    text-align:center
 }
-main{
+
+main
+{
     width: 100%;
     background-color: brown;
     padding:25px;
+    margin: 
 }
+
+a
+{
+    text-decoration:none;
+    color:orange;
+}
+
+a:hover{ color:aqua};

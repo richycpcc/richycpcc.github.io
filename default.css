@@ -1,6 +1,7 @@
 
 *{
     font-style: Tahoma;
+ 
 }
 figure
 {
@@ -29,7 +30,7 @@ h2
 
 main
 {
- 
+    width: 100%;
     background-color: #A9AFD1;
    
 }
@@ -41,6 +42,7 @@ a
 }
 nav{
     border: solid 1px;
+    padding:auto;
 }
 
 a:hover{ color:aqua};

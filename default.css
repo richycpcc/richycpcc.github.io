@@ -8,22 +8,29 @@ figure
 figcaption
 {
     font-style:italic;
+    color: #74b3ce 
 }
 header, footer
 {
-    background-color: #7c809b; 
+    background-color: #74B3CE; 
     text-align:center;
     width:100%;
     font-family: Tahoma;
+    color:#172a3A;
+    padding: 10px;
 }
 
 body
 {
-    background-color: #B5B1B2;
+    background-color: #508991;
     width: 60%;
     margin: auto;
-}    
 
+    color:#09BC8A
+}    
+h1{
+    font-size:30px;
+}
 h2
 {
     text-align:center;
@@ -32,19 +39,22 @@ h2
 main
 {
     width: 100%;
-    background-color: #A9AFD1;
-    
+    background-color: #004346;
     font-family: Tahoma;
+    padding: 15px;
    
 }
 
 a
 {
     text-decoration:none;
+    color: #004346;
 }
 nav{
     border: solid 1px;
-    color: whitesmoke
+    padding: 10px;
+    color: #09BC8A;  
+    letter-spacing: 5px;
 }
 
 a:hover{ color:aqua};

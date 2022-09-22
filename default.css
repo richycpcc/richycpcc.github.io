@@ -4,7 +4,10 @@ figure
 {
     margin:auto;
     text-align:center;
-    
+}
+figcaption
+{
+    font-style:italic;
 }
 header, footer
 {
@@ -41,6 +44,7 @@ a
 }
 nav{
     border: solid 1px;
+    color: whitesmoke
 }
 
 a:hover{ color:aqua};

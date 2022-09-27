@@ -8,7 +8,7 @@ figure
 figcaption
 {
     font-style:italic;
-    color: #74b3ce 
+    color: #74b3ce; 
 }
 header, footer
 {
@@ -19,7 +19,9 @@ header, footer
     color:;
     padding: 10px;
 }
-
+ul{
+    text-align:left;
+}
 body
 {
     background-color: #508991;

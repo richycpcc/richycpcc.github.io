@@ -11,19 +11,36 @@
     <main>
         <h2><!--Subheading-->FizzBuzz</h2>
         <h3 id="results">Content Here</h3>
+        <p id="results1"></p>
+        <p id="results2"></p>
         <script> 
-        console.log("This will display to console.");
+        //console.log("This script is running in the fizzbuzz page.");
 
-        let output ="1 <br> 2 <br> 3 <br> 4 <br>";
+        let output ="";
         let startNumber = 1;
         let endNumber = 100;
+        let = results
 
-        for(let counter = 1;counter = counter+1;counter <=endNumber)
+        for(let counter = startNumber; counter <= endNumber; counter + 1)
         {
-            output = output + counter;
+            output = output+ "<li>";
+
+            if(counter % 3 == 0 )
+            {
+                output = output + "FIZZ";
+            }
+            else if (counter % 5 == 0 )
+            {
+                output = output + "BUZZ";
+            }
+            else
+            {
+                output = output + counter ;
+            }
+            output = output + "</li>";
         }
 
-        document.getElementById("results").innerHTML = ouput;
+            document.getElementById("results1").innerHTML = ouput;
         </script>
 
 

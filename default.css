@@ -1,6 +1,7 @@
 
 html{
     background-color:#508991;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 figure
 {
@@ -28,6 +29,8 @@ body
     background-color: #74B3ce;
     width: 80%;
     margin: auto;
+    padding-left: 50px;
+    padding-right: 50px;
 
     color:#004346;
 }    
@@ -40,14 +43,6 @@ h2
     text-align:center;
 }
 
-/*main
-{
-    width: 100%;
-    background-color: #004346;
-    font-family: Tahoma;
-    padding: 15px;
-}
-*/
 a
 {
     text-decoration:none;

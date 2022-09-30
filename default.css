@@ -13,9 +13,7 @@ header, footer
 {
     background-color: #74B3CE; 
     text-align:center;
-    width:100%;
     font-family: Tahoma;
-    color:;
     padding: 10px;
 }
 ul{
@@ -27,10 +25,10 @@ body
     width: 60%;
     margin: auto;
 
-    color:#09BC8A
+    color:#004346;
 }    
 h1{
-    font-size:30px;
+    font-size:250%;
     color:midnightblue
 }
 h2
@@ -38,18 +36,18 @@ h2
     text-align:center;
 }
 
-main
+/*main
 {
     width: 100%;
     background-color: #004346;
     font-family: Tahoma;
     padding: 15px;
 }
-
+*/
 a
 {
     text-decoration:none;
-    color: #74B3CE;
+    color: #004346;
 }
 nav{
     border: solid 1px;
@@ -57,8 +55,5 @@ nav{
     color: #004346;  
     letter-spacing: 5px;
 }
-nav a
-{
-    color: midnightblue;
-}
+
 a:hover{ color:aqua}

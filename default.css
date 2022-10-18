@@ -56,3 +56,7 @@ nav{
 }
 
 a:hover{ color:aqua}
+
+dt{font-weight:bold;}
+
+dt, dd{padding:10px}

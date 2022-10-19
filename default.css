@@ -23,9 +23,9 @@ header, footer
 }
 ul
 {
-    text-align:left;
     font-family: Georgia;
 }
+
 body
 {
     background-color: #74B3ce;
@@ -92,6 +92,8 @@ table{
     margin-bottom: 6px;
     display: inline-block;
     background-color: #B7CCD1;
+    justify-content: center;
+    display:flex
 }
 #title
 {

@@ -1,5 +1,6 @@
 
-html{
+html
+{
     background-color:#508991;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
@@ -11,7 +12,7 @@ figure
 figcaption
 {
     font-style:italic;
-    color: #74b3ce; 
+    color: midnightblue; 
 }
 header, footer
 {
@@ -19,10 +20,11 @@ header, footer
     text-align:center;
     font-family: Tahoma;
     padding: 10px;
- 
 }
-ul{
+ul
+{
     text-align:left;
+    font-family: Georgia;
 }
 body
 {
@@ -34,7 +36,8 @@ body
 
     color:#004346;
 }    
-h1{
+h1
+{
     font-size:250%;
     color:midnightblue
 }
@@ -42,8 +45,12 @@ h2
 {
     text-align:center;
 }
-
-a
+h3
+{
+    text-align: center;
+    font-size: 60px;
+}
+header, footer a
 {
     text-decoration:none;
     color: #004346;
@@ -57,10 +64,21 @@ nav{
 
 a:hover{ color:aqua}
 
-img{
-    height: 500px;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+dt{
+    font-weight: bold;
+}
 
+table{
+    padding: 4px 10px 4px 10px;
+    border: black solid 1px;
+}
+
+#menu
+{
+    border: 1px;
+    padding: 6px 30px 6px 20px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    display: inline-block;
+    background-color: #B7CCD1;
 }

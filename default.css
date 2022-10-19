@@ -40,21 +40,19 @@ main
 padding-left: 50px;
 padding-right: 50px;
 }
+
 h1
 {
     text-align: center ;
     font-size:250%;
     color:midnightblue
 }
-h2
+
+h2, h3
 {
     text-align:center;
 }
-h3
-{
-    text-align: center;
 
-}
 nav, a
 {
     text-decoration:none;

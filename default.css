@@ -29,7 +29,7 @@ ul
 body
 {
     background-color: #74B3ce;
-    width: 80%;
+    width: 90%;
     margin: auto;
     padding-left: 50px;
     padding-right: 50px;
@@ -38,6 +38,7 @@ body
 }    
 h1
 {
+    text-align: center ;
     font-size:250%;
     color:midnightblue
 }
@@ -50,7 +51,7 @@ h3
     text-align: center;
     font-size: 60px;
 }
-header, footer a
+nav, a
 {
     text-decoration:none;
     color: #004346;
@@ -67,12 +68,18 @@ a:hover{ color:aqua}
 dt{
     font-weight: bold;
 }
-
+table, th, tr, td
+{
+    border: black solid 2px;
+    padding: 10px;
+    border-collapse: collapse;
+}
 table{
     padding: 4px 10px 4px 10px;
-    border: black solid 1px;
+    background-color: lightgray;
+    font-family: Arial;
+    width: 33%;
 }
-
 #menu
 {
     border: 1px;
@@ -81,4 +88,21 @@ table{
     margin-bottom: 6px;
     display: inline-block;
     background-color: #B7CCD1;
+}
+#title
+{
+    border: 2px black solid;
+    text-align: center;
+}
+#red
+{
+    background-color: red;
+}
+#yellow
+{
+    background-color: yellow;
+}
+#blue
+{
+    background-color: blue;
 }

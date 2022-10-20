@@ -74,6 +74,7 @@ table, th, tr, td
     border: black solid 2px;
     padding: 10px;
     border-collapse: collapse;
+    text-align:center;
 }
 table{
     padding: 4px 10px 4px 10px;
@@ -88,10 +89,8 @@ table{
     padding: 6px 30px 6px 20px;
     margin-top: 6px;
     margin-bottom: 6px;
-    display: inline-block;
     background-color: #B7CCD1;
-    justify-content: center;
-    display:flex
+ 
 }
 #title
 {

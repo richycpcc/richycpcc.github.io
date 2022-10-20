@@ -24,6 +24,7 @@ header, footer
 ul
 {
     font-family: Georgia;
+    text-align:justify;
 }
 
 body

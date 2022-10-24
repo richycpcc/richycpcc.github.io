@@ -4,54 +4,35 @@ html
     background-color:#508991;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
-figure
-{
-    margin:auto;
-    text-align:center;
-}
-figcaption
-{
-    font-style:italic;
-    color: midnightblue; 
-}
-header, footer
-{
-    background-color: #74B3CE; 
-    text-align:center;
-    font-family: Tahoma;
-    padding: 10px;
-}
-ul
-{
-    font-family: Georgia;
-    text-align:justify;
-}
 
 body
 {
     background-color: #74B3ce;
-    width: 90%;
+    color:#004346;
     margin: auto;
     padding-left: 50px;
     padding-right: 50px;
-    color:#004346;
-}    
+    width: 90%;
+}
+
 main
 {
-padding-left: 50px;
-padding-right: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
-h1
+header, footer
 {
-    text-align: center ;
-    font-size:250%;
-    color:midnightblue
-}
-
-h2, h3
-{
+    background-color: #74B3CE; 
+    font-family: Tahoma;
+    padding: 10px;
     text-align:center;
+}
+
+nav{
+    color: #004346;  
+    letter-spacing: 5px;
+    padding: 10px;
 }
 
 nav, a
@@ -59,31 +40,63 @@ nav, a
     text-decoration:none;
     color: #004346;
 }
-nav{
-    padding: 10px;
-    color: #004346;  
-    letter-spacing: 5px;
-}
 
 a:hover{ color:aqua}
+
+figure
+{
+    margin:auto;
+    text-align:center;
+}
+
+figcaption
+{
+    color:midnightblue;
+    font-style:italic;
+}
+
+h1
+{
+    text-align: center ;
+    font-size:250%;
+    color:midnightblue;
+}
+
+h2, h3
+{
+    text-align:center;
+}
+
+table{
+    background-color: lightgray;
+    font-family: Arial;
+    padding: 4px 10px 4px 10px;
+    width: 33%;
+}
+
+table, th, tr, td
+{
+    border: black solid 2px;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align:center;
+}
 
 dt{
     font-weight: bold;
 }
-table, th, tr, td
+
+ul
 {
-    border: black solid 2px;
-    padding: 10px;
-    border-collapse: collapse;
-    text-align:center;
+    font-family: Georgia;
+    text-align:justify;
 }
-table{
-    padding: 4px 10px 4px 10px;
-    background-color: lightgray;
-    font-family: Arial;
-    width: 33%;
-    
+
+#blue
+{
+    background-color: blue;
 }
+
 #menu
 {
     border: 1px;
@@ -91,22 +104,20 @@ table{
     margin-top: 6px;
     margin-bottom: 6px;
     background-color: #B7CCD1;
- 
 }
+
+#red
+{
+    background-color: red;
+}
+
 #title
 {
     border: 2px black solid;
     text-align: center;
 }
-#red
-{
-    background-color: red;
-}
+
 #yellow
 {
     background-color: yellow;
-}
-#blue
-{
-    background-color: blue;
 }

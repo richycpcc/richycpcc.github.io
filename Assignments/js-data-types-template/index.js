@@ -14,7 +14,7 @@
 //      but not re-declaration
     let tree;
 // 2.   Assign a value of 'Oak' to the tree variable
-    let tree = "Oak";
+    tree = "Oak";
 // 3.   Initialize a constant variable named "alaskaStateFlower",
 //      and assign it the value of 'Forget-me-not'
     const alaskaStateFlower = "Forget-me-not";
@@ -46,7 +46,7 @@ let product = numberOfChoice * operandTwo;
 
 // 11.  Create a variable named "productOutput" and give it a string value with
 //      the following sentence: "The product is: <answer_here>", ensuring that <answer_here> is your product variable
-let productOutput = '"The product is: <answer_here>", ensuring that <answer_here> is your product variable';
+    let productOutput =`The product is: ${answer_here}`;
 ///////////////////////
 // TYPE CONVERSIONS! //
 // In the following section, you should identify the data type that will result when 
@@ -59,10 +59,10 @@ let productOutput = '"The product is: <answer_here>", ensuring that <answer_here
 const dataType12 = 'number';
 
 // 13.  -10 + '5'
-const dataType13 = 'number';
+const dataType13 = 'string';
 
 // 14.  '-10' + 5
-const dataType14 = 'number';
+const dataType14 = 'string';
 
 // 15.  -10 - '5'
 const dataType15 = 'number';

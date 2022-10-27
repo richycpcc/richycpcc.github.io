@@ -1,0 +1,24 @@
+dir - List Directory Contents
+cd.. - Change Directory - Up One
+ls - list files in directory	
+pwd - print working directory
+cd ~ - return to home directory
+git clone , then paste ssh of clone repository - Run clone command
+git branch - view local branches
+git branch --all -view remote and local branches
+git branch -a -view remote and local branches
+git switch <existing_branch_name> - switch to an existing branch
+git switch -c <my_new_branch_name> - create new branch
+git checkout -b <my_new_branch_name> - create new branch
+git checkout <existing_branch_name> - switch to an existing branch
+git status - look at status of local git repository
+git add <file name> - Stage changes on file
+git commit -m "<description>" Create a commit of staged changes
+Training Cycle Best Practice
+1. Do not use git commit -am
+2. Do not use git add .
+
+git log - view log history
+	q to quit scroll mode
+git push orgin <branch_name> - push branch to remote repo
+git merge <branch_name>

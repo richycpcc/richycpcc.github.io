@@ -117,16 +117,17 @@ The next series of questions involves interacting with arrays.
 //13.   Given the following array, write code to access the first item
 const vegetables = ['bok choy', 'broccoli', 'brussels sprouts', 'cabbage', 'carrots', 'cauliflower', 'onion'];
 //TODO: Use bracket notation to assign the value of the first item in vegetables to firstVegetable .
-const firstVegetable = vegetables; //This line needs to change
+const firstVegetable = vegetables[0]; //This line needs to change
 
 //14.   Add 'cucumber' to vegetables using the .push array method. 
-
+vegetables.push('cucumber');
 
 //15.   Make a copy of an array using a for loop and the .push method. The loop has been created for you.
 const copyArray = (array) => {
     const arrayCopy = [];
     for (const item of array) {
         //TODO: push the current item into the array.
+        arrayCopy.push(item);
     }
     return arrayCopy;
 }
@@ -157,10 +158,21 @@ At the end of the array, check the variable that stored the running total.
 const runs = [0, 1, 4]; //This is just an example array that you can use to test your runsScored function
 const runsScored = (innings) => {
     //TODO: instantiate a variable to hold the total runs
-
+let totalRuns = 0;
     //TODO: Loop over the innings
     //TODO: inside of the loop, add the current innings' run total to the totalRuns variable
+    /*for(let score =0; score <runs.length; score++){
+        totalRuns =+ runs[score];
+        return totalRuns;
+    }
+    */
 
+    for(const score of runs){
+        totalRuns = totalRuns + runs;
+       
+    }
+    return totalRuns;
+    
     //TODO: Don't forget to return the totalRuns!
 }
 

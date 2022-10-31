@@ -34,17 +34,17 @@ Because all of this data is relevant to a single applicant, we want to use an ob
 */
 
 //1.    Create an object named "applicant1"
-
+let applicant1 = {};
 
 //2.    Add a "name" field to applicant1, and assign it a string value of your choosing
-
+applicant1.name = "Richy";
 
 //3.    Add an "age" field to applicant1, and assign it a number between 0 and 122
-
+applicant1.age = 20;
 
 //4.    Add a "programStatus" field to applicant1, and assign it a string value of one of the following:
 //      ['Applied', 'Accepted', 'Active', 'Completed', 'Dismissed', 'Rejected']
-
+applicant1.programStatus = "Active";
 
 /* 
 state, city, and zip code are all part of an address. It's extremely common for objects to contain other
@@ -84,25 +84,41 @@ objects. Let's do that with address
 /////////////////////////////////////////////////////
 //SECTION 3: Using object properties in expressions//
 /////////////////////////////////////////////////////
-
 //9.    Replace the placeholder string with an expression that returns true if
 //      applicant1's age is greater than or equal to 18.
-let isApplicant1Eligible = 'placeholder';
+
+
+let isApplicant1Eligible; 
+    if (applicant1.age >= 18){
+        isApplicant1Eligible = true;
+    }
 
 //10.   Using the stubbed out function, "isEligibleApplicant", write code that returns
 //      whether or not the applicant at least 18 years old.
 const isEligibleApplicant = (applicant) => {
-    return false; //Change this logic!
+    if (applicant.age >= 18){
+        return true;
+    }else{
+        return false;
+    }
+    
 }
 
 //11.   Replace the placeholder string  with an expression that returns true if
 //      applicant1's programStatus is "Active".
-let isApplicant1Active = 'placeholder';
+let isApplicant1Active;
+    if (applicant1.programStatus = "Active"){
+        isApplicant1Active = true;
+    }
 
 //12.   Using the stubbed out function, "isActiveApplicant", write code that returns
 //      whether or not the applicant is active.
 const isActiveApplicant = (applicant) => {
-    return false;
+    if ( applicant.programStatus = "Active"){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 //////////////////////////////////////

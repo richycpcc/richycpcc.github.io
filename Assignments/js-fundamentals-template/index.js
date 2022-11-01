@@ -34,17 +34,17 @@ Because all of this data is relevant to a single applicant, we want to use an ob
 */
 
 //1.    Create an object named "applicant1"
-
+const applicant1 = {};
 
 //2.    Add a "name" field to applicant1, and assign it a string value of your choosing
-
+applicant1.name = "Adam";
 
 //3.    Add an "age" field to applicant1, and assign it a number between 0 and 122
-
+applicant1.age = 30;
 
 //4.    Add a "programStatus" field to applicant1, and assign it a string value of one of the following:
 //      ['Applied', 'Accepted', 'Active', 'Completed', 'Dismissed', 'Rejected']
-
+applicant1.programStatus = "Active";
 
 /* 
 state, city, and zip code are all part of an address. It's extremely common for objects to contain other
@@ -59,27 +59,31 @@ objects. Let's do that with address
     zipCode: 21201
 }
 */
-
+applicant1.address ={
+    state: 'MD',
+    city: 'Baltimore',
+    zipCode: 21201,
+}
 ////////////////////////////////////////////
 //SECTION 2: Accessing Data from an Object//
 ////////////////////////////////////////////
 
 //6.    Uncomment the line that properly accesses applicant1's name
-// const applicant1NameA = applicant1.name;
+ const applicant1NameA = applicant1.name;
 // const applicant1NameB = 'Kjirsten';
 // const applicant1NameC = applicant1.getName();
 
 
 //7.    Uncomment the line that properly accesses applicant1's age
 //const applicant1AgeA = applicant1.getAge();
-//const applicant1AgeB = applicant1['age'];
+const applicant1AgeB = applicant1['age'];
 //const applicant1AgeC = applicant1.Age;
 
 
 //8.    Uncomment the line that properly accesses applicant1's city
 //const applicant1CityA = applicant1.city;
 //const applicant1CityB = applicant1.address;
-//const applicant1CityC = applicant1.address.city;
+const applicant1CityC = applicant1.address.city;
 
 /////////////////////////////////////////////////////
 //SECTION 3: Using object properties in expressions//
@@ -87,13 +91,27 @@ objects. Let's do that with address
 
 //9.    Replace the placeholder string with an expression that returns true if
 //      applicant1's age is greater than or equal to 18.
-let isApplicant1Eligible = 'placeholder';
+//let isApplicant1Eligible =(applicant1.age) =>{
+/*
+    if (applicant1.age >= 18){
+        isApplicant1Eligible = true;
+    }
+*/
+
+
 
 //10.   Using the stubbed out function, "isEligibleApplicant", write code that returns
 //      whether or not the applicant at least 18 years old.
 const isEligibleApplicant = (applicant) => {
     return false; //Change this logic!
 }
+/*
+    if (applicant1.age >= 18){
+        isEliibleApplicant = "Applicant is at least 18 years old"
+    }else{
+        isEliibleApplicant = "Applicant is not at least 18 years old"
+    }
+*/
 
 //11.   Replace the placeholder string  with an expression that returns true if
 //      applicant1's programStatus is "Active".

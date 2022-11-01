@@ -1,0 +1,59 @@
+GIT LOG for Git Workflow Exercise
+
+commit 3fff41e469c2f5ca4e0b69a4d6afe81e999a09eb (HEAD -> paragraph-4, origin/paragraph-4)
+Author: richycpcc <113448538+richycpcc@users.noreply.github.com>
+Date:   Thu Oct 27 13:07:00 2022 -0400
+
+    DATA, REMOVES, BIASES,CANDIDATES,CREATE, SUSTAINABLE, BUSINESS changed to data, removes, biases, candidates, create, sustainable, business
+
+commit 1090718dfe7caff83a89e400b7dcc482c89f1cb0 (origin/paragraph-3, paragraph-3)
+Author: richycpcc <113448538+richycpcc@users.noreply.github.com>
+Date:   Thu Oct 27 12:54:29 2022 -0400
+
+    changes CATALYTE, FELLOW, PROPOSED, POPULATIONS, FIELD, ABILITY to Catalyte, proposed, populations, field, ability
+
+commit fdacbc676d2a66909e0644da870680e5984276b1 (origin/paragraph-2, paragraph-2)
+Author: richycpcc <113448538+richycpcc@users.noreply.github.com>
+Date:   Thu Oct 27 12:40:31 2022 -0400
+
+    changed COMPANIES TALENT KEEP to companies talent keep
+
+commit ad91afa0cc4bd27669b1b0f3ab0881d565fa1699 (origin/paragraph-1, paragraph-1)
+Author: richycpcc <113448538+richycpcc@users.noreply.github.com>
+Date:   Thu Oct 27 12:30:54 2022 -0400
+
+    changed ACCELERATES to accelerates
+
+commit caab0f407ad8c027b7c7e70dafe38a5d5e7cb1f0
+Author: richycpcc <113448538+richycpcc@users.noreply.github.com>
+Date:   Thu Oct 27 12:21:39 2022 -0400
+
+    change TALENT to talent
+
+commit d43a486bd5b575df179b29d561b7946f3082f97b
+Author: richycpcc <113448538+richycpcc@users.noreply.github.com>
+Date:   Thu Oct 27 12:07:13 2022 -0400
+
+    changed first word
+
+commit a6f30748fafaa6c9a3eaf0b307c5c08067ff8f6f (origin/main, origin/HEAD, main)
+Author: Richy Phongsavath <rphongs0@email.cpcc.edu>
+Date:   Wed Oct 26 11:57:16 2022 -0400
+
+    updated Team link
+
+commit cbe9b962e8ebd8d9d2b9bf0842831e50f5e2f0a5
+Author: Richy Phongsavath <rphongs0@email.cpcc.edu>
+Date:   Wed Oct 26 11:03:14 2022 -0400
+
+    updated Javatype and header
+
+commit ab8e49dbb282eb236d31c694ff7b2922c14a462a
+Author: Richy Phongsavath <rphongs0@email.cpcc.edu>
+Date:   Tue Oct 25 22:15:10 2022 -0400
+
+    added Java Data Type Assignments
+
+commit de36a26f9208d41ada42c68197bf6cc75eed4159
+Author: richycpcc <113448538+richycpcc@users.noreply.github.com>
+Date:   Tue Oct 25 10:52:46 2022 -0400

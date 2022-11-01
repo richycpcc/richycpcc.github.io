@@ -34,17 +34,17 @@ Because all of this data is relevant to a single applicant, we want to use an ob
 */
 
 //1.    Create an object named "applicant1"
-
+let applicant1 = {};
 
 //2.    Add a "name" field to applicant1, and assign it a string value of your choosing
-
+applicant1.name = "Richy";
 
 //3.    Add an "age" field to applicant1, and assign it a number between 0 and 122
-
+applicant1.age = 30;
 
 //4.    Add a "programStatus" field to applicant1, and assign it a string value of one of the following:
 //      ['Applied', 'Accepted', 'Active', 'Completed', 'Dismissed', 'Rejected']
-
+applicant1.programStatus = "Active";
 
 /* 
 state, city, and zip code are all part of an address. It's extremely common for objects to contain other
@@ -90,25 +90,29 @@ const applicant1CityC = applicant1.address.city;
 /////////////////////////////////////////////////////
 //9.    Replace the placeholder string with an expression that returns true if
 //      applicant1's age is greater than or equal to 18.
-let isApplicant1Eligible = 'placeholder';
+let isApplicant1Eligible;
+ if (applicant1.age >= 18){
+    isApplicant1Eligiable = true
+ };
+
 
 //10.   Using the stubbed out function, "isEligibleApplicant", write code that returns
 //      whether or not the applicant at least 18 years old.
-const isEligibleApplicant = (applicant) => {
-    if (applicant.age >= 18){
+function isEligibleApplicant(applicant) {
+    if (applicant.age >= 18) {
         return true;
-    }else{
+    } else {
         return false;
     }
-    
+
 }
-/*
+
     if (applicant1.age >= 18){
         isEliibleApplicant = "Applicant is at least 18 years old"
     }else{
         isEliibleApplicant = "Applicant is not at least 18 years old"
     }
-*/
+
 
 //11.   Replace the placeholder string  with an expression that returns true if
 //      applicant1's programStatus is "Active".

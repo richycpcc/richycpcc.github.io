@@ -1,0 +1,15 @@
+<input type = "text" placeholder=" what ever text" id="thingstosay">
+
+<button onclick= "processWords()"> Click me to Srart</button>
+
+//To display text on site
+<p id = "results"> Your results will go here.</p>
+
+JS:
+const processWords = () => {
+const textfieldofthingsToSay = document.getElementByID(thingstosay);
+alert(thingsToSay.value);
+}
+
+//Display text 
+document.getElementByID("results").textContent = thingsToSay;

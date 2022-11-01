@@ -46,7 +46,7 @@ let product = numberOfChoice * operandTwo;
 
 // 11.  Create a variable named "productOutput" and give it a string value with
 //      the following sentence: "The product is: <answer_here>", ensuring that <answer_here> is your product variable
-    let productOutput =`The product is: ${answer_here}`;
+    let productOutput =`The product is: ${product}`;
 ///////////////////////
 // TYPE CONVERSIONS! //
 // In the following section, you should identify the data type that will result when 

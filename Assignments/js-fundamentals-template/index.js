@@ -34,17 +34,17 @@ Because all of this data is relevant to a single applicant, we want to use an ob
 */
 
 //1.    Create an object named "applicant1"
-const applicant1 = {};
+
 
 //2.    Add a "name" field to applicant1, and assign it a string value of your choosing
-applicant1.name = "Adam";
+
 
 //3.    Add an "age" field to applicant1, and assign it a number between 0 and 122
-applicant1.age = 30;
+
 
 //4.    Add a "programStatus" field to applicant1, and assign it a string value of one of the following:
 //      ['Applied', 'Accepted', 'Active', 'Completed', 'Dismissed', 'Rejected']
-applicant1.programStatus = "Active";
+
 
 /* 
 state, city, and zip code are all part of an address. It's extremely common for objects to contain other
@@ -88,22 +88,19 @@ const applicant1CityC = applicant1.address.city;
 /////////////////////////////////////////////////////
 //SECTION 3: Using object properties in expressions//
 /////////////////////////////////////////////////////
-
 //9.    Replace the placeholder string with an expression that returns true if
 //      applicant1's age is greater than or equal to 18.
-//let isApplicant1Eligible =(applicant1.age) =>{
-/*
-    if (applicant1.age >= 18){
-        isApplicant1Eligible = true;
-    }
-*/
-
-
+let isApplicant1Eligible = 'placeholder';
 
 //10.   Using the stubbed out function, "isEligibleApplicant", write code that returns
 //      whether or not the applicant at least 18 years old.
 const isEligibleApplicant = (applicant) => {
-    return false; //Change this logic!
+    if (applicant.age >= 18){
+        return true;
+    }else{
+        return false;
+    }
+    
 }
 /*
     if (applicant1.age >= 18){
@@ -115,12 +112,19 @@ const isEligibleApplicant = (applicant) => {
 
 //11.   Replace the placeholder string  with an expression that returns true if
 //      applicant1's programStatus is "Active".
-let isApplicant1Active = 'placeholder';
+let isApplicant1Active;
+    if (applicant1.programStatus = "Active"){
+        isApplicant1Active = true;
+    }
 
 //12.   Using the stubbed out function, "isActiveApplicant", write code that returns
 //      whether or not the applicant is active.
 const isActiveApplicant = (applicant) => {
-    return false;
+    if ( applicant.programStatus = "Active"){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 //////////////////////////////////////
@@ -135,16 +139,17 @@ The next series of questions involves interacting with arrays.
 //13.   Given the following array, write code to access the first item
 const vegetables = ['bok choy', 'broccoli', 'brussels sprouts', 'cabbage', 'carrots', 'cauliflower', 'onion'];
 //TODO: Use bracket notation to assign the value of the first item in vegetables to firstVegetable .
-const firstVegetable = vegetables; //This line needs to change
+const firstVegetable = vegetables[0]; //This line needs to change
 
 //14.   Add 'cucumber' to vegetables using the .push array method. 
-
+vegetables.push('cucumber');
 
 //15.   Make a copy of an array using a for loop and the .push method. The loop has been created for you.
 const copyArray = (array) => {
     const arrayCopy = [];
     for (const item of array) {
         //TODO: push the current item into the array.
+        arrayCopy.push(item);
     }
     return arrayCopy;
 }
@@ -175,10 +180,21 @@ At the end of the array, check the variable that stored the running total.
 const runs = [0, 1, 4]; //This is just an example array that you can use to test your runsScored function
 const runsScored = (innings) => {
     //TODO: instantiate a variable to hold the total runs
-
+let totalRuns = 0;
     //TODO: Loop over the innings
     //TODO: inside of the loop, add the current innings' run total to the totalRuns variable
+    /*for(let score =0; score <runs.length; score++){
+        totalRuns =+ runs[score];
+        return totalRuns;
+    }
+    */
 
+    for(const score of runs){
+        totalRuns = totalRuns + runs;
+       
+    }
+    return totalRuns;
+    
     //TODO: Don't forget to return the totalRuns!
 }
 

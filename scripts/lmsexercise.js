@@ -99,13 +99,14 @@ const testData = [
     for (const test of testData){
       if (inputDate == test.submissionDate){
         submissionDates.push(test.studentName);
+        document.getElementById('resultFilterByDate').innerHTML = submissionDates;
       } //End If Statement
 
         //console.log("Test");
 
     } //End For Of Loop
     //console.log("Test");
-    
+
     document.getElementById('resultFilterByDate').innerHTML = submissionDates;
   };
 

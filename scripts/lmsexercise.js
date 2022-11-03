@@ -99,7 +99,7 @@ const testData = [
     for (const test of testData){
       if (inputDate == test.submissionDate){
         submissionDates.push(test.studentName);
-        document.getElementById('resultFilterByDate').innerHTML = submissionDates;
+        document.getElementById('resultFilterByDate').innerHTML = submissionDates +`Done ${submissionDate}`;
       } //End If Statement
 
         //console.log("Test");
@@ -107,7 +107,7 @@ const testData = [
     } //End For Of Loop
     //console.log("Test");
 
-    document.getElementById('resultFilterByDate').innerHTML = submissionDates;
+    document.getElementById('resultFilterByDate').innerHTML = submissionDates +`Done ${submissionDate}`;
   };
 
 //filter By StudentID Feature

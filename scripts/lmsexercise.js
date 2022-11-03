@@ -95,27 +95,38 @@ const testData = [
     console.log("Test");
     //const inputDate = event.target.parentNode.querySelector('input').value;
     let inputDate = document.getElementById('_submissionDate').value
-    const submissionDates = [];
+    let submissionDates = [];
 
     for (const test of testData){
-      if (inputDate == test.submissionDate){
+      console.log(inputDate);
+      if (inputDate === test.submissionDate){
         submissionDates.push(test.studentName);
-        document.getElementById('resultFilterByDate').innerHTML = submissionDates +`Done ${submissionDate}`;
-      } //End If Statement
+        console.log(submissionDates);
+        document.getElementById('resultFilterByDate').innerHTML = submissionDates +"Done";
+      } // end if
 
-        //console.log("Test");
+    } // end for
+    console.log(submissionDates);
 
-    } //End For Of Loop
-    //console.log("Test");
+    let output = null;
+    if (submissionDates.length != 0)
+    {
+       output = submissionDates;
+    }
+    else
+    {
+      output = "Sorry no go";
+    }
 
-    document.getElementById('resultFilterByDate').innerHTML = submissionDates +`Done ${submissionDate}`;
+    document.getElementById('resultFilterByDate').innerHTML = output;
+    console.log("Function Over");
     //document.querySelector('p').(submissionDates)
-  }
+  } // end function
   //document.querySelector('button.addEventListener('click',filterByDate)
-
+/*
 //filter By StudentID Feature
 const filterByStudentId = () =>{
-};
+}
 /*
 }
 const getCustomerDetail = () => {
@@ -130,13 +141,14 @@ const getCustomerDetail = () => {
       }
   }
 };
-*/
+
 //Find Unsubmitted Feature
 const findUnsubmitted = () =>{
 
-};
+}
 
 //Get Quiz Average Feature
 const getAverageScore = () =>{
 
-};
+}
+*/

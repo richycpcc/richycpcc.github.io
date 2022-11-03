@@ -93,6 +93,7 @@ const testData = [
 //Filter By Date Feature
   const filterByDate = () => {
     console.log("Test");
+    //const inputDate = event.target.parentNode.querySelector('input').value;
     let inputDate = document.getElementById('_submissionDate').value
     const submissionDates = [];
 
@@ -108,7 +109,9 @@ const testData = [
     //console.log("Test");
 
     document.getElementById('resultFilterByDate').innerHTML = submissionDates +`Done ${submissionDate}`;
-  };
+    //document.querySelector('p').(submissionDates)
+  }
+  //document.querySelector('button.addEventListener('click',filterByDate)
 
 //filter By StudentID Feature
 const filterByStudentId = () =>{

@@ -1,7 +1,7 @@
 const listItems = document.querySelectorAll('li');
     const addCompleted = (event)=>
     {
-        event.tartget.classList.toggle('completed');
+        event.target.classList.toggle('completed');
     }
     for (const li of listItems)
         {

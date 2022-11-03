@@ -11,20 +11,56 @@
     <main>
         <h2>Learning Module Software</h2>
         <h3>Filter By Date Feature </h3>
-        <form>
-            <p>Please enter the date for the listing of students</p>
+        <form id="byDatefeature">
             <div>
-            <label >Date:</label>
-            <input type="text" placeholder="MM/DD/YYYY" id="_submissionDate">
-            <button onclick="filterByDate()">+</button>
+                <p>Please enter the date for the listing of students</p>
+                <label >Date:</label>
+                <input type="text" placeholder="MM/DD/YYYY" id="_submissionDate">
+                <button onclick="filterByDate()">+</button>
+            </div>
+            <div>
+                <p id="resultFilterByDate">text</p>
             </div>
         </form>
-        <div>
-            <p id="resultFilterByDate">text</p>
-        </div>
+        <br>
         <h3>Filter By StudentId Feature</h3>
+        <form id="studentIdFeature">
+            <div>
+                <p>Please enter the Student ID for the listing of student submissions</p>
+                <label >Date:</label>
+                <input type="text" placeholder="000" id="studentId">
+                <button onclick="filterByStudentId()">+</button>
+            </div>
+            <div>
+                <p id="resultFilterStudentID">text</p>
+            </div>
+        </form>
+        <br>
         <h3>Find Unsubmitted Feature</h3>
+        <form id="unsubmittedFeature">
+            <div>
+                <p>Please enter the date for the listing of students who have not submitted the assignment</p>
+                <label >Date:</label>
+                <input type="text" placeholder="MM/DD/YYYY" id="_submissionDate">
+                <button onclick="findUnsubmitted()">+</button>
+            </div>
+            <div>
+                <p id="resultUnsubmitted">text</p>
+            </div>
+        </form>
+        <br>
         <h3>Get Quiz Average Feature</h3>
+        <form id="quizAverageFeature">
+            <div>
+                <p>Please enter the quiz names to get the average score</p>
+                <label >Quiz Name: </label>
+                <input type="text" placeholder="Quiz Name" id="_quizName">
+                <button onclick="getAverageScore()">+</button>
+            </div>
+            <div>
+                <p id="resultAverageScore">text</p>
+            </div>
+    </form>
     </main>
 </body>    
 <div data-include="components/footer.html"></div>

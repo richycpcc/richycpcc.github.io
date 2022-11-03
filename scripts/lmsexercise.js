@@ -92,22 +92,21 @@ const testData = [
   ];
 //Filter By Date Feature
   const filterByDate = () => {
+    console.log=("Test");
     let inputDate = document.getElementById('_submissionDate').value
     const submissionDateArray = [];
     for (const test of testData){
         if (inputDate === test.submissionDate){
             submissionDateArray.push(test.studentName);
-        }else{
-          console.log=("Test");
         }
-
+        //console.log=("Test");
       }
-    console.log=("Test");
-    document.getElementById('resultFilterByDate').innerHTML = `Test`;//submissionDateArray;
+    //console.log=("Test");
+    document.getElementById('resultFilterByDate').innerHTML = submissionDateArray;
   };
 
 //filter By StudentID Feature
-const filterByStudentId = (studentID) =>{
+const filterByStudentId = () =>{
 };
 /*
 }
@@ -124,3 +123,12 @@ const getCustomerDetail = () => {
   }
 };
 */
+//Find Unsubmitted Feature
+const findUnsubmitted = () =>{
+
+};
+
+//Get Quiz Average Feature
+const getAverageScore = () =>{
+
+};

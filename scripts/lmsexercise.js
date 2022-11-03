@@ -92,16 +92,16 @@ const testData = [
   ];
 //Filter By Date Feature
   const filterByDate = () => {
-    console.log=("Test");
+    console.log("Test");
     let inputDate = document.getElementById('_submissionDate').value
     const submissionDateArray = [];
     for (const test of testData){
         if (inputDate === test.submissionDate){
             submissionDateArray.push(test.studentName);
         }
-        //console.log=("Test");
+        //console.log("Test");
       }
-    //console.log=("Test");
+    //console.log("Test");
     document.getElementById('resultFilterByDate').innerHTML = submissionDateArray;
   };
 

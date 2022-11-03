@@ -224,7 +224,7 @@ const filterApplicantsByEligibility = (applicants) => {
     let arrayApplicantsByEligibility = [];
     for (const applicant of applicants){
         if (applicant.age >=18){
-            arrayApplicantsByEligibility.push = (applicant);
+            arrayApplicantsByEligibility.push(applicant);
         }
     }
     return arrayApplicantsByEligibility; //TODO: fill in the correct logic for this function
@@ -236,8 +236,8 @@ const filterApplicantsByEligibility = (applicants) => {
 const filterApplicantsByProgramStatus = (applicants) => {
     let arrayProgramStatus=[];
     for (const applicant of applicants){
-        if (applicant.programStatus = "Active"){
-            arrayProgramStatus.push = (applicant);
+        if (applicant.programStatus == "Active"){
+            arrayProgramStatus.push (applicant);
         }
     }
     return arrayProgramStatus; //TODO: fill in the correct logic for this function

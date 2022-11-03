@@ -92,20 +92,35 @@ const testData = [
   ];
 //Filter By Date Feature
   const filterByDate = () => {
-    let dateInput = document.getElementById('_submissionDate')
+    let inputDate = document.getElementById('_submissionDate').value
     const submissionDateArray = [];
     for (const test of testData){
-        if (dateInput === testData[test].submissionDate){
-            submissionDateArray.push(testData[test].studentName);
+        if (inputDate === test.submissionDate){
+            submissionDateArray.push(test.studentName);
         }else{
-          alert("Try Again");
+          console.log=("Test");
         }
 
       }
-    document.getElementById('resultFilterByDate').innerHTML = submissionDateArray;
+    console.log=("Test");
+    document.getElementById('resultFilterByDate').innerHTML = `Test`;//submissionDateArray;
   };
 
 //filter By StudentID Feature
 const filterByStudentId = (studentID) =>{
-    
+};
+/*
 }
+const getCustomerDetail = () => {
+  const inputId = document.getElementById("_customerId").value
+  //const newId = parseInt(inputId);
+  for (const customer of customers){
+      if (inputId === customer.customer_id){
+          document.getElementById('output').innerHTML = `Customer Id: ${customer.customer_id} - ${customer.first_name} ${customer.last_name} Last purchase order of ${customer.last_purchase_quantity} for a total of ${customer.last_purchase_amount_in_dollars}.`;
+          return;
+      }else{
+          document.getElementById('output').innerHTML = `Customer Id: ${inputId} does not exist. Please enter a valid Customer ID ${customer.customer_id}`;
+      }
+  }
+};
+*/

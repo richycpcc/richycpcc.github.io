@@ -55,15 +55,27 @@ in the console log.)
 */
 
 const getCustomerDetail = () => {
-    const inputDate = document.getElementById("_customerId").value
+    const inputId = document.getElementById("_customerId").value
+    //const newId = parseInt(inputId);
     for (const customer of customers){
-        if (inputDate == customers[customer].customer_id){
-            document.getElementById('output').innerHTML = (`${customer.customer_id} - ${customer.firstName} ${customer.lastName} Last purchase order of ${customer.last_purchase_quantity} for a total of $${customer.last_purchase_amount_in_dollars}.`);
+        if (inputId === customer.customer_id){
+            document.getElementById('output').innerHTML = `Customer Id: ${customer.customer_id} - ${customer.first_name} ${customer.last_name} Last purchase order of ${customer.last_purchase_quantity} for a total of ${customer.last_purchase_amount_in_dollars}.`;
+            return;
         }else{
-            document.getElementById('output').innerHTML = ('Customer does not exist. Please enter a valid Customer ID');
+            document.getElementById('output').innerHTML = `Customer Id: ${inputId} does not exist. Please enter a valid Customer ID ${customer.customer_id}`;
         }
     }
-    
 };
 
-//for (let counter = 0; counter < customer.length; counter++ ) {
+/*
+const getCustomerDetail = () => {
+    const inputId = document.getElementById("_customerId").value
+    for (let counter = 0; counter < customer.length; counter++ ){
+        if (inputId === customer.){
+        document.getElementById('output').innerHTML = `Customer Id: ${customer.customer_id} - ${customer.first_name} ${customer.last_name} Last purchase order of ${customer.last_purchase_quantity} for a total of ${customer.last_purchase_amount_in_dollars}.`;
+        }else{
+        document.getElementById('output').innerHTML = `Customer Id: ${inputId} does not exist. Please enter a valid Customer ID ${customer.customer_id}`;
+        }
+    }
+};
+*/

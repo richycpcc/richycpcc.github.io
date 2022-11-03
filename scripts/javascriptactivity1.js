@@ -65,7 +65,7 @@ const getCustomerDetail = () => {
             document.getElementById('output').innerHTML = `Customer Id: ${inputId} does not exist. Please enter a valid Customer ID ${customer.customer_id}`;
         }
     }
-};
+}
 
 /*
 const getCustomerDetail = () => {

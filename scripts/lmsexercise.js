@@ -94,15 +94,19 @@ const testData = [
   const filterByDate = () => {
     console.log("Test");
     let inputDate = document.getElementById('_submissionDate').value
-    const submissionDateArray = [];
+    const submissionDates = [];
+
     for (const test of testData){
-        if (inputDate === test.submissionDate){
-            submissionDateArray.push(test.studentName);
-        }
+      if (inputDate == test.submissionDate){
+        submissionDates.push(test.studentName);
+      } //End If Statement
+
         //console.log("Test");
-      }
+
+    } //End For Of Loop
     //console.log("Test");
-    document.getElementById('resultFilterByDate').innerHTML = submissionDateArray;
+    
+    document.getElementById('resultFilterByDate').innerHTML = submissionDates;
   };
 
 //filter By StudentID Feature

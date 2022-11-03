@@ -6,36 +6,37 @@
     last_purchase_amount_in_dollars
 }
 */
-const customer= 
-[customer1 = {
+const customers= 
+[
+{
     customer_id: '001',
     last_name: 'Smith',
     first_name: 'Jacob',
     last_purchase_quantity:'5',
     last_purchase_amount_in_dollars: '$50.00'
 },
-customer2 = {
+{
     customer_id: '002',
     last_name: 'Johnson',
     first_name: 'Iris',
     last_purchase_quantity:'10',
     last_purchase_amount_in_dollars: '$100.00'
 },
-customer3 = {
+{
     customer_id: '003',
     last_name: 'Perez',
     first_name: 'Javier',
     last_purchase_quantity:'5',
     last_purchase_amount_in_dollars: '$50.00'
 },
-customer4 = {
+{
     customer_id: '004',
     last_name: 'Thomas',
     first_name: 'Henry',
     last_purchase_quantity:'20',
     last_purchase_amount_in_dollars: '$200.00'
 },
-customer5 = {
+{
     customer_id: '005',
     last_name: 'Smith',
     first_name: 'Janice',
@@ -52,20 +53,17 @@ the investor. (For example, if the investor requests more information on custome
 003, your leader should be able to request more information about customer 003
 in the console log.)
 */
-const answer = prompt("What is the customer ID?");
-const findCustomerDetail (customer.customer_id) => {
-    for (let counter = 0; counter < customer.length; counter++ ) {
-     if (answer = customer[counter].customer_id){
-        let thisCustomer = customer[Counter];
-        console.log( `Customer ID: ${thisCustomer.customer_id} - ${thisCustomer.firstName} ${thisCustomer.lastName} Last purchase order of ${thisCustomer.last_purchase_quantity} for a total of $${thisCustomer.last_purchase_amount_in_dollars}`.);
-     }
+
+const getCustomerDetail = () => {
+    const inputDate = document.getElementById("_customerId").value
+    for (const customer of customers){
+        if (inputDate == customers[customer].customer_id){
+            document.getElementById('output').innerHTML = (`${customer.customer_id} - ${customer.firstName} ${customer.lastName} Last purchase order of ${customer.last_purchase_quantity} for a total of $${customer.last_purchase_amount_in_dollars}.`);
+        }else{
+            document.getElementById('output').innerHTML = ('Customer does not exist. Please enter a valid Customer ID');
+        }
     }
     
 };
 
-
-/*
-for (const thisCustomer of customer){
-
-}
-*/
+//for (let counter = 0; counter < customer.length; counter++ ) {

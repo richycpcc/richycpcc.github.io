@@ -91,15 +91,18 @@ const testData = [
     }
   ];
 //Filter By Date Feature
-  const filterByDate = (submissionDate) => {
+  const filterByDate = () => {
+    let dateInput = document.getElementById('_submissionDate')
     const submissionDateArray = [];
-    for (const student of testData){
-        if (submissionDate = testData.submissionDate){
-            submissionDateArray.push(testData.studentName);
+    for (const test of testData){
+        if (dateInput === testData[test].submissionDate){
+            submissionDateArray.push(testData[test].studentName);
         }else{
-        
+          alert("Try Again");
         }
-    }
+
+      }
+    document.getElementById('resultFilterByDate').innerHTML = submissionDateArray;
   };
 
 //filter By StudentID Feature

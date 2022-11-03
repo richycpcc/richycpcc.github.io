@@ -9,10 +9,25 @@
         <div data-include="components/header.html"></div> <header>
 <body> 
     <main>
-        <h2> Learning Module Software</h2>
-        <h3>Filter by </h3>
+        <h2>Learning Module Software</h2>
+        <h3>Filter By Date Feature </h3>
+        <form>
+            <p>Please enter the date for the listing of students</p>
+            <div>
+            <label >Date:</label>
+            <input type="text" placeholder="MM/DD/YYYY" id="_submissionDate"><button onlcick="filterByDate()">+</button>
+            </div>
+        </form>
+        <div>
+            <p id="resultFilterByDate">text</p>
+        </div>
+        <h3>Filter By StudentId Feature</h3>
+        <h3>Find Unsubmitted Feature</h3>
+        <h3>Get Quiz Average Feature</h3>
     </main>
 </body>    
 <div data-include="components/footer.html"></div>
 <script src="scripts/HTMLinclude.js"></script>
+<script src="scripts/lmsexercise.js"> </script>
+
 </html>

@@ -91,9 +91,11 @@ const applicant1CityC = applicant1.address.city;
 //9.    Replace the placeholder string with an expression that returns true if
 //      applicant1's age is greater than or equal to 18.
 let isApplicant1Eligible;
- if (applicant1.age >= 18){
-    isApplicant1Eligiable = true
- };
+ if (applicant1.age >= 18) {
+    isApplicant1Eligible = true;
+ }else{
+    isApplicant1Eligible = false;
+ }
 
 
 //10.   Using the stubbed out function, "isEligibleApplicant", write code that returns
@@ -124,12 +126,12 @@ let isApplicant1Active;
 //12.   Using the stubbed out function, "isActiveApplicant", write code that returns
 //      whether or not the applicant is active.
 const isActiveApplicant = (applicant) => {
-    if ( applicant.programStatus = "Active"){
-        return true;
+    if ( applicant.programStatus == "Active"){
+        return true
     }else{
-        return false;
+        return false
     }
-}
+};
 
 //////////////////////////////////////
 //SECTION 4: Interacting with Arrays//
@@ -187,17 +189,16 @@ const runsScored = (innings) => {
 let totalRuns = 0;
     //TODO: Loop over the innings
     //TODO: inside of the loop, add the current innings' run total to the totalRuns variable
-    /*for(let score =0; score <runs.length; score++){
-        totalRuns =+ runs[score];
-        return totalRuns;
-    }
-    */
-
-    for(const score of runs){
-        totalRuns = totalRuns + runs;
-       
+    for(let score =0; score <innings.length; score++){
+        totalRuns += innings[score];
     }
     return totalRuns;
+    /*
+    for(const inning of innings){
+        totalRuns = totalRuns + innings[inning];  
+        
+    }
+    */
     
     //TODO: Don't forget to return the totalRuns!
 }
@@ -220,12 +221,25 @@ Push an object to an array
 //      Remember that you already wrote logic to determine if a single applicant
 //      is eligible in the isEligibleApplicant function.
 const filterApplicantsByEligibility = (applicants) => {
-    return []; //TODO: fill in the correct logic for this function
+    let arrayApplicantsByEligibility = [];
+    for (const applicant of applicants){
+        if (applicant.age >=18){
+            arrayApplicantsByEligibility.push = (applicant);
+        }
+    }
+    return arrayApplicantsByEligibility; //TODO: fill in the correct logic for this function
 }
 
 //18.   Given an array of applicants, return an array of active students. Remember
 //      that you already wrote the logic for a single applicant in the 
 //      isActiveApplicant function.
 const filterApplicantsByProgramStatus = (applicants) => {
-    return []; //TODO: fill in the correct logic for this function
+    let arrayProgramStatus=[];
+    for (const applicant of applicants){
+        if (applicant.programStatus = "Active"){
+            arrayProgramStatus.push = (applicant);
+        }
+    }
+    return arrayProgramStatus; //TODO: fill in the correct logic for this function
+
 }

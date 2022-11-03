@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8" content="width=device-width, initital-scale=1.0"/>
         <title>Richy Phongsavath's Rich Pandas | CP-CO-01 | JavaScript Activity 1</title>
-        <link href="default.css" rel="stylesheet"/>
+        <!--<link href="default.css" rel="stylesheet"/>-->
         <style>
-            h2: {
+            h2 {
                 text-align: center;
                 font-family: arial, tahoma;
                 color: blue;
             }
-            table:{
+            table{
                 border-style: black 2em solid;
             
             }
@@ -19,7 +19,6 @@
     </head>        
     <div data-include="components/header.html"></div> <header> 
 <body>
-    
     <main>
         <h2><!--Subheading-->Company Name</h2>
         <h3>Recent Sales</h3>
@@ -59,9 +58,17 @@
                 <td>10</td>
                 <td>$100.00</td>
             </tr>
-            <tr></tr>
         </table>
-
+        <h3>Search Customer Order History</h3>
+        <form>
+            <div>
+                <label>Customer Id: </label><input type="text" placeholder="000" id="_customerId">
+                <button type="button" onclick="getCustomerDetail()">Submit</button>
+            </div>
+            <div>
+                <p id="output">Customer Listing</p>
+            </div>
+        </form>
 
 
     </main>
@@ -69,4 +76,5 @@
 </body>
 <div data-include="components/footer.html"></div>
 <script src="scripts/HTMLinclude.js"></script>
+<script src="scripts/javascriptactivity1.js"></script>
 </html>

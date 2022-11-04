@@ -16,8 +16,8 @@
             <div>
                 <p>Please enter the date for the listing of students</p>
                 <label >Date:</label>
-                <input type="text" placeholder="MM/DD/YYYY" id="_submissionDate">
-                <button type="button">+</button>
+                <input type="text" placeholder="MM/DD/YYYY" id="_subDate">
+                <button type="button" id="dateButton">+</button>
             </div>
             <div>
                 <p id="resultFilterByDate"></p>
@@ -34,29 +34,21 @@
                 <button type="button" id="idButton">+</button>
             </div>
             <div>
-                <p id="resultFilterStudentID">text</p>
+                <p id="resultFilterStudentID"></p>
             </div>
         </form>
         <br>
 
-
-        <
         <h3>Find Unsubmitted Feature</h3>
-        <form id="unsubmittedFeature">
+        <form id="UnsubmittedFeature">
             <div>
                 <p>Please enter the date for the listing of students who have not submitted the assignment</p>
                 <label >Date:</label>
                 <input type="text" placeholder="MM/DD/YYYY" id="_submissionDate">
                 <button type="button" id="submissionDateButton">+</button>
-                <label >Student Name:</label>
-                <input type="text" placeholder="John Smith" id="_submissionName">
-                <button type="button" id="submissionNameButton">+</button>
-                <label >Submitted Assignment:</label>
-                <input type="text" placeholder="" id="_submissionQuiz">
-                <button type="button" id="submissionQuizButton">+</button>
             </div>
             <div>
-                <p id="resultUnsubmitted">text</p>
+                <p id="resultNotSubmitted"></p>
             </div>
         </form>
         <br>
@@ -67,13 +59,11 @@
         <h3>Get Quiz Average Feature</h3>
         <form id="quizAverageFeature">
             <div>
-                <p>Please enter the quiz names to get the average score</p>
-                <label >Quiz Name: </label>
-                <input type="text" placeholder="Quiz Name" id="_quizName">
-                <button onclick="getAverageScore()">+</button>
+                <p>Please click to find the average of all quizzes</p>
+                <button type = "button" id= "averageQuizButton">Click</button>
             </div>
             <div>
-                <p id="resultAverageScore">text</p>
+                <p id="resultAverageScore"></p>
             </div>
     </form>
     <div data-include="components/footer.html"></div>

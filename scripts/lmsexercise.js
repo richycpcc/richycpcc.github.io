@@ -96,9 +96,12 @@ const getStudentNames = (_testData) =>{
   const studentNames = [];
   for (data of testData)
   {
-    studentNames.push(data.studentName);
+    if(!studentNames.includes(data.studentName))
+    {
+      studentNames.push(data.studentName);
+    }
   }
-  return studentNames
+  return studentNames // adds Student Name in Array
 }
 
 const studentListing = getStudentNames(testData);
@@ -176,7 +179,7 @@ document.querySelector('#idButton').addEventListener('click', filterByStudentId)
 
 //Find Unsubmitted Feature
 
-const findNotSubmitted = (event) =>{
+const findNotSubmitted = (event, studentListing) =>{
   const inputSubmittedDate = event.target.parentNode.querySelector('#_submissionDate').value;
   let matchedSubmittedStudents = [];
   let noAssignmentStudents =[];
@@ -187,13 +190,38 @@ const findNotSubmitted = (event) =>{
     } //end if
   } //end for
 
+  for (const student of matchedSubmittedStudents){
+    if (student === studentListing){
+      console.log(student);
+      //studentNames.splice(student,1);
+
+    }
+
+    }//end for
+
+ 
+  /*
+  for loop
+    if (inputSubmittedDate ===test.submittionDate){
+      const currentStudentIndex = matchedSubmittedDate.indexOf(test.studentName)
+
+      unsubmittedStudents.splice(studentNames,1))
+    }
+  */
+
+  /*
   for(const student of studentListing){
     if (student != matchedSubmittedStudents){
       noAssignmentStudents.push(student); //array contains student names who did not match the students who submitted an assignment.
     } //end if
   }//end for
+  */
+ /*
+     if (!student.includes(matchedSubmittedStudents)){
+      noAssignmentStudents.push(student)
+*/
 
-  document.querySelector('#resultNotSubmitted').append(noAssignmentStudents);
+  document.querySelector('#resultNotSubmitted').append(student);
   } //end function
   document.querySelector('#submissionDateButton').addEventListener('click', findNotSubmitted);
 

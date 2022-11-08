@@ -9,23 +9,28 @@
 <body>
     <div data-include="components/header.html"></div>
     <main>
-        <h2><!--Subheading-->Calculator</h2>
-        <div id = "inputField">
-            <input type = "text" id = "input1">
-            <input type = "text" id = "input2">
-            <input type = "text" id = "result">
-        </div>
+        <form>
+            <h2><!--Subheading-->Calculator</h2>
+            <div>
+                <input type = "text" id = "input1">
+                <input type = "text" id = "input2">
+            </div>
+            <div>
+                <p id="output"></p>
+            </div>
 
-        <div id = "buttonFunctions">
-        <input type = "button" id = "addition" value = "+">
-        <input type = "button" id = "subtraction" value = "-">
-        <input type = "button" id = "multiply" value = "*">
-        <input type = "button" id = "divide" value = "/">
-        </div>
+            <div id = "buttonFunctions">
+                <input type = "button" id = "add" value = "+">
+                <input type = "button" id = "subtract" value = "-">
+                <input type = "button" id = "multiply" value = "*">
+                <input type = "button" id = "divide" value = "/">
+                <input type = "button" id = "clear" value = "Clear">
+            </div>
+        </form>
 
     </main>
     <div data-include="components/footer.html"></div>
-    <script src="scripts.calculator.js"></script>
+    <script src="scripts/calculator.js"></script>
     <script src="scripts/HTMLinclude.js"></script>
 </body>
 

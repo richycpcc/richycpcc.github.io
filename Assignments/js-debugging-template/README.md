@@ -52,4 +52,5 @@ Get into the habit of writing a README for every program you write. The more pra
 [Purdue OWL](https://owl.purdue.edu/owl/general_writing/academic_writing/conciseness/index.html) - tips and tricks for keeping your writing concise and impactful
 
 ## ChangeLog
-
+line 29 - added "}"
+line 64 - added "'"

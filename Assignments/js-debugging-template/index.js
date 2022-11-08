@@ -24,7 +24,7 @@ const addListener = (id, callback, eventType = 'click') => {
       writeWordToList(word);
   
       wordInput.value = ''; //Clear input text
-    else {
+    }else { //added "}" to line.
       wordInput.classList.toggle('error', true); //Add error class to input
     }
   };
@@ -61,7 +61,7 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const onEnter = e => {
     if (e.keyCode === 13) {
-      document.getElementById('add-word).click();
+      document.getElementById('add-word').click(); //added "'" to line.
     }
   };
   

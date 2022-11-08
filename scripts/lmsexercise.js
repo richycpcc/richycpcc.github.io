@@ -191,7 +191,7 @@ const findNotSubmitted = (event, studentListing) =>{
   } //end for
 
   for (const student of matchedSubmittedStudents){
-    if (student === studentListing){
+    if (student === data.studentListing){
       console.log(student);
       //studentNames.splice(student,1);
 

@@ -96,16 +96,19 @@ const getStudentNames = (_testData) =>{
   const studentNames = [];
   for (data of testData)
   {
-    studentNames.push(data.studentName);
+    if(!studentNames.includes(data.studentName))
+    {
+      studentNames.push(data.studentName);
+    }
   }
-  return studentNames
+  return studentNames // adds Student Name in Array
 }
 
-const studentnames = getStudentNames(testData);
+const studentListing = getStudentNames(testData);
 
 //Filter By Date Feature
 const filterByDate = (event) => {
-  const inputDate = event.target.parentNode.querySelector('#studentId').value;
+  const inputDate = event.target.parentNode.querySelector('#_subDate').value;
 
   let submissionDates = [];
 
@@ -128,10 +131,10 @@ const filterByDate = (event) => {
     }//end for
   }
   else {
-    document.getElementById('resultFilterByDate').append("Empty Array");
+    document.querySelector('#resultFilterByDate').append("Empty Array");
   } //end if
 } // end function
-document.querySelector('button').addEventListener('click', filterByDate);
+document.querySelector('#dateButton').addEventListener('click', filterByDate);
 
 //filter By StudentID Feature
 const filterByStudentId = (event) =>{
@@ -142,7 +145,6 @@ const filterByStudentId = (event) =>{
     if (parseInt(inputId) === test.studentId) {
 
       submissionObjects.push(test);
-      console.log(test);
     } // end if
   } // end for
 
@@ -164,26 +166,76 @@ const filterByStudentId = (event) =>{
     }//end for
   }
   else {
-    document.getElementById('resultFilterStudentID').append("Empty Array");
+    document.querySelector('#resultFilterStudentID').append("Empty Array");
   } //end if
 } // end function
 document.querySelector('#idButton').addEventListener('click', filterByStudentId);
 
-
+/*
+        Given I have an array of submission objects, when I supply a date, an array of student names, and an array of 
+        submission objects(in that order) to the findUnsubmitted function, then I am returned an array of names of students
+         that have not completed any quiz on that date
+*/
 
 //Find Unsubmitted Feature
-const findUnsubmitted = (event) =>{
+
+const findNotSubmitted = (event, studentListing) =>{
   const inputSubmittedDate = event.target.parentNode.querySelector('#_submissionDate').value;
-  const inputSubmittedName = event.target.parentNode.querySelector('#_submissionName').value;
-  const inputSubmittedQuiz = event.target.parentNode.querySelector('#_submissionQuiz').value;
-  let submittedStudents = [];
-  let submittedDates = [];
-  let submittedQuizes = [];
+  let matchedSubmittedStudents = [];
+  let noAssignmentStudents =[];
 
+  for(const test of testData){
+    if (inputSubmittedDate === test.submissionDate){
+      matchedSubmittedStudents.push(test.studentName); //array contains name of students who have submitted assignments matching input date.
+    } //end if
+  } //end for
 
-  }  /*
-//Get Quiz Average Feature
-const getAverageScore = () =>{
+  for (const student of matchedSubmittedStudents){
+    if (student === studentListing){
+      console.log(student);
+      //studentNames.splice(student,1);
 
-}
+    }
+
+    }//end for
+
+ 
+  /*
+  for loop
+    if (inputSubmittedDate ===test.submittionDate){
+      const currentStudentIndex = matchedSubmittedDate.indexOf(test.studentName)
+
+      unsubmittedStudents.splice(studentNames,1))
+    }
+  */
+
+  /*
+  for(const student of studentListing){
+    if (student != matchedSubmittedStudents){
+      noAssignmentStudents.push(student); //array contains student names who did not match the students who submitted an assignment.
+    } //end if
+  }//end for
+  */
+ /*
+     if (!student.includes(matchedSubmittedStudents)){
+      noAssignmentStudents.push(student)
 */
+
+  document.querySelector('#resultNotSubmitted').append(student);
+  } //end function
+  document.querySelector('#submissionDateButton').addEventListener('click', findNotSubmitted);
+
+//Get Quiz Average Feature
+const getAverageScore = (event) =>{
+  let quizTotal = 0;
+  let quizAverage = 0;
+  console.log("test");
+
+  for (const test of testData){
+    quizTotal = quizTotal + test.quizScore;
+    quizAverage = quizTotal/testData.length;
+  } //end for
+  
+  document.querySelector('#resultAverageScore').append("The average score of the quizzes is " + quizAverage.toFixed(1));
+}
+  document.querySelector('#averageQuizButton').addEventListener('click', getAverageScore);

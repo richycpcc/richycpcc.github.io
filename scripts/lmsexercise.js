@@ -192,9 +192,29 @@ const findNotSubmitted = (event) =>{
   } //end for
  
   for (const student of matchedSubmittedStudents){
-    if (student != studentRegister){
-      notSubmittedStudents = studentRegister.splice(student,1);
-    }// end if
+    if (student === studentListing){
+      console.log(student);
+      //studentNames.splice(student,1);
+
+    }
+
+    }//end for
+
+ 
+  /*
+  for loop
+    if (inputSubmittedDate ===test.submittionDate){
+      const currentStudentIndex = matchedSubmittedDate.indexOf(test.studentName)
+
+      unsubmittedStudents.splice(studentNames,1))
+    }
+  */
+
+  /*
+  for(const student of studentListing){
+    if (student != matchedSubmittedStudents){
+      noAssignmentStudents.push(student); //array contains student names who did not match the students who submitted an assignment.
+    } //end if
   }//end for
 
   document.querySelector('#resultNotSubmitted').append(notSubmittedStudents);

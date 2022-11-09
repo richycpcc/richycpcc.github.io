@@ -104,7 +104,7 @@ const getStudentNames = (_testData) =>{
   return studentNames // adds Student Name in Array
 }
 
-const studentListing = getStudentNames(testData);
+const studentRegister = getStudentNames(testData);
 
 //Filter By Date Feature
 const filterByDate = (event) => {
@@ -179,49 +179,25 @@ document.querySelector('#idButton').addEventListener('click', filterByStudentId)
 
 //Find Unsubmitted Feature
 
-const findNotSubmitted = (event, studentListing) =>{
+const findNotSubmitted = (event) =>{
   const inputSubmittedDate = event.target.parentNode.querySelector('#_submissionDate').value;
   let matchedSubmittedStudents = [];
-  let noAssignmentStudents =[];
+  let notSubmittedStudents = [];
+  
 
   for(const test of testData){
     if (inputSubmittedDate === test.submissionDate){
       matchedSubmittedStudents.push(test.studentName); //array contains name of students who have submitted assignments matching input date.
     } //end if
   } //end for
-
-  for (const student of matchedSubmittedStudents){
-    if (student === studentListing){
-      console.log(student);
-      //studentNames.splice(student,1);
-
-    }
-
-    }//end for
-
  
-  /*
-  for loop
-    if (inputSubmittedDate ===test.submittionDate){
-      const currentStudentIndex = matchedSubmittedDate.indexOf(test.studentName)
-
-      unsubmittedStudents.splice(studentNames,1))
-    }
-  */
-
-  /*
-  for(const student of studentListing){
-    if (student != matchedSubmittedStudents){
-      noAssignmentStudents.push(student); //array contains student names who did not match the students who submitted an assignment.
-    } //end if
+  for (const student of matchedSubmittedStudents){
+    if (student != studentRegister){
+      notSubmittedStudents = studentRegister.splice(student,1);
+    }// end if
   }//end for
-  */
- /*
-     if (!student.includes(matchedSubmittedStudents)){
-      noAssignmentStudents.push(student)
-*/
 
-  document.querySelector('#resultNotSubmitted').append(student);
+  document.querySelector('#resultNotSubmitted').append(notSubmittedStudents);
   } //end function
   document.querySelector('#submissionDateButton').addEventListener('click', findNotSubmitted);
 

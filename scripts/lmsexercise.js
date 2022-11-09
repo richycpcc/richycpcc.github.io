@@ -101,7 +101,7 @@ const getStudentNames = (_testData) =>{
       studentNames.push(data.studentName);
     }
   }
-  return studentRegister // adds Student Name in Array
+  return studentNames // adds Student Name in Array
 }
 
 const studentRegister = getStudentNames(testData);

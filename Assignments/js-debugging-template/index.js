@@ -323,7 +323,7 @@ const addListener = (id, callback, eventType = 'click') => {
   
   /**
    * Generates a random number from min to max
-   * @param {numberr} min - lowest number you want
+   * @param {number} min - lowest number you want //changed "numberr" to "number"
    * @param {number} max - highest number you want
    * 
    * @returns {number}

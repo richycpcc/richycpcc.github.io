@@ -5,7 +5,7 @@
  * @param {string} eventType defaults to click, but can be any event type
  */
 const addListener = (id, callback, eventType = 'click') => {
-    document.getElementsByAttribute(id).addEventListener(eventType, callback); //changed getElementsByClassName to getElementsByAttribute
+    document.getElementById(id).addEventListener(eventType, callback); //Line 8 - changed getElementsByClassName to getElementById?
   };
   
   /**
@@ -35,7 +35,7 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const onCreate = e => {
     resetError();
-    const word = getWordList(); //Line 38 changed "word" to "words"
+    const words = getWordList(); //Line 38 changed "word" to "words"
     const height = Number(document.getElementById('height').value);
     const width = Number(document.getElementById('width').value);
   
@@ -85,7 +85,7 @@ const addListener = (id, callback, eventType = 'click') => {
    * Adds word to word bank, with a trash can icon
    * @param {string} word - word to add to word bank
    */
-  const writeWrodToList = word => {
+  const writeWordToList = word => { //line 88 changed "writeWrodToList" to "writeWordToList"
     const li = document.createElement('li');
   
     const trashButton = document.createElement('div');
@@ -323,7 +323,7 @@ const addListener = (id, callback, eventType = 'click') => {
   
   /**
    * Generates a random number from min to max
-   * @param {number} min - lowest number you want //changed "numberr" to "number"
+   * @param {number} min - line 326 lowest number you want //changed "numberr" to "number"
    * @param {number} max - highest number you want
    * 
    * @returns {number}

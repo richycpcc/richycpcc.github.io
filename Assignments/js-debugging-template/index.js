@@ -5,7 +5,7 @@
  * @param {string} eventType defaults to click, but can be any event type
  */
 const addListener = (id, callback, eventType = 'click') => {
-    document.getElementsByTagName(id).addEventListener(eventType, callback); //changed getElementsByClassName to getElementsByTagName
+    document.getElementsByAttribute(id).addEventListener(eventType, callback); //changed getElementsByClassName to getElementsByAttribute
   };
   
   /**
@@ -35,7 +35,7 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const onCreate = e => {
     resetError();
-    const word = getWordList();
+    const word = getWordList(); //Line 38 changed "word" to "words"
     const height = Number(document.getElementById('height').value);
     const width = Number(document.getElementById('width').value);
   

@@ -131,7 +131,7 @@ const addListener = (id, callback, eventType = 'click') => {
   /**
    * Helper method to get the word bank
    */
-  const getNextWordsContainer = () => document.getElementById('next-words');
+  const getNextWordsContainer = () =>{ document.getElementById('next-words')}; // line 134 added missing {} to function?
   
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////

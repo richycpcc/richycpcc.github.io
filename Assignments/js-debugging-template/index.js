@@ -76,7 +76,7 @@ const addListener = (id, callback, eventType = 'click') => {
     const words = getWordList();
     return (
       !/[^A-Z]/.test(word) && //Only text
-      word.length <= 3 && //Word length at least 3 //line79 changed "<" to "<=""
+      word.length <= 3 && //Word length at least 3 //error - line79 changed "<" to "<=""
       !words.includes(word)
     ); //Not allowing duplicates
   };
@@ -119,13 +119,13 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const getWordList = () => {
     let words = [];
-    const liElements = getNextWordsContainer().child;// deleted .child from getNextWordsContainer().child;
-  
+    const liElements = getNextWordsContainer().childNodes;// error - line 122 changed "child" to "children" console says .child is undefined and w3schools does not list child under properties/method. "children" returns an HTMLCollection of element child elements https://www.w3schools.com/jsref/dom_obj_all.asp
+                                                        //get the collection of li's child elements
     for (const liElement of liElements) {
       words.push(liElement.firstChild.innerText); //*Richy note - this pushes the first child node of ???? to words array
     }
   
-    return liElements; //Error line 128 - changed "liElements" to "words"
+    return words; //Error line 128 - changed "liElements" to "words"
   };
   
   /**

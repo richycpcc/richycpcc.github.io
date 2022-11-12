@@ -89,7 +89,7 @@ const addListener = (id, callback, eventType = 'click') => {
     const li = document.createElement('li'); //*Richy note can you name a variable with an element name??
   
     const trashButton = document.createElement('div');
-    trashButton.class.add('icon')
+    trashButton.classList.add('icon') //error line 92 - changed "class" to "classList"
     let trashIcon = document.createElement('i'); //*richy note - an "i" element is in idiomatic Text Element, fancy way of saying italic?
     trashIcon.classList.add('fa', 'fa-trash-alt');
     trashButton.addEventListener('click', deleteWord);

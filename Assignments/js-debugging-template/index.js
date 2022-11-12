@@ -5,7 +5,7 @@
  * @param {string} eventType defaults to click, but can be any event type
  */
 const addListener = (id, callback, eventType = 'click') => {
-    document.getElementById(id).addEventListener(eventType, callback); //Line 8 - changed getElementsByClassName to getElementById?
+    document.getElementById(id).addEventListener(eventType, callback); //Line 8 - changed getElementsByClassName to getElementById? why is this the only one that works.
   };
   
   /**
@@ -60,7 +60,7 @@ const addListener = (id, callback, eventType = 'click') => {
    * @param {} e
    */
   const onEnter = e => {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13) {     //richy note* actually a thing. http://gcctech.org/csc/javascript/javascript_keycodes.htm
       document.getElementById('add-word').click(); //added "'" to line.
     }
   };
@@ -76,7 +76,7 @@ const addListener = (id, callback, eventType = 'click') => {
     const words = getWordList();
     return (
       !/[^A-Z]/.test(word) && //Only text
-      word.length < 3 && //Word length at least 3
+      word.length <= 3 && //Word length at least 3 //line79 changed "<" to "<=""
       !words.includes(word)
     ); //Not allowing duplicates
   };
@@ -86,11 +86,11 @@ const addListener = (id, callback, eventType = 'click') => {
    * @param {string} word - word to add to word bank
    */
   const writeWordToList = word => { //line 88 changed "writeWrodToList" to "writeWordToList"
-    const li = document.createElement('li');
+    const li = document.createElement('li'); //*Richy note can you name a variable with an element name??
   
     const trashButton = document.createElement('div');
     trashButton.class.add('icon')
-    let trashIcon = document.createElement('i');
+    let trashIcon = document.createElement('i'); //*richy note - an "i" element is in idiomatic Text Element, fancy way of saying italic?
     trashIcon.classList.add('fa', 'fa-trash-alt');
     trashButton.addEventListener('click', deleteWord);
     trashButton.appendChild(trashIcon);
@@ -119,10 +119,10 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const getWordList = () => {
     let words = [];
-    const liElements = getNextWordsContainer().child;
+    const liElements = getNextWordsContainer().child;// deleted .child from getNextWordsContainer().child;
   
     for (const liElement of liElements) {
-      words.push(liElement.firstChild.innerText);
+      words.push(liElement.firstChild.innerText); //*Richy note - this pushes the first child node of ???? to words array
     }
   
     return liElements;
@@ -131,8 +131,8 @@ const addListener = (id, callback, eventType = 'click') => {
   /**
    * Helper method to get the word bank
    */
-  const getNextWordsContainer = () =>{ document.getElementById('next-words')}; // line 134 added missing {} to function?
-  
+  const getNextWordsContainer = () =>{ document.getElementById('next-word-list')}; // line 134 added missing {} to function? *Where is 'next-words'
+                                                                              // line 134 changed "next-word" to "next-word-list"   
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
   ///////THERE ARE NO INTENTIONAL BUGS BELOW THIS LINE////////

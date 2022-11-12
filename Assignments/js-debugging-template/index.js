@@ -74,9 +74,9 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const isValidWord = word => {
     const words = getWordList();
-    return (
-      !/[^A-Z]/.test(word) && //Only text
-      word.length <= 3 && //Word length at least 3 //error - line79 changed "<" to "<=""
+    return (        //Richy Note* is this like a if statement??
+      /[^A-Z]/.test(word) && //Only text   //error - line 78 - changed "!/[^A-Z]/" to "/[^A-Z]/" //why return not True?
+      word.length >= 3 && //Word length at least 3 //error - line79 changed "<" to ">=""
       !words.includes(word)
     ); //Not allowing duplicates
   };
@@ -92,7 +92,7 @@ const addListener = (id, callback, eventType = 'click') => {
     trashButton.classList.add('icon') //error line 92 - changed "class" to "classList"
     let trashIcon = document.createElement('i'); //*richy note - an "i" element is in idiomatic Text Element, fancy way of saying italic?
     trashIcon.classList.add('fa', 'fa-trash-alt');
-    trashButton.addEventListener('click', deleteWord);
+    trashButton.addEventListener('click', deleteWord); 
     trashButton.appendChild(trashIcon);
   
     const textSpan = document.createElement('span');

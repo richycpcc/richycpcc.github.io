@@ -125,7 +125,7 @@ const addListener = (id, callback, eventType = 'click') => {
       words.push(liElement.firstChild.innerText); //*Richy note - this pushes the first child node of ???? to words array
     }
   
-    return liElements;
+    return liElements; //Error line 128 - changed "liElements" to "words"
   };
   
   /**

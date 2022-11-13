@@ -59,7 +59,7 @@ const addListener = (id, callback, eventType = 'click') => {
    * Allows users to hit the "enter" key to add a word.
    * @param {} e
    */
-  const onEnter = e => {
+  const onEnter = (e) => {
     if (e.keyCode === 13) {     //richy note* actually a thing. http://gcctech.org/csc/javascript/javascript_keycodes.htm
       document.getElementById('add-word').click(); //added "'" to line.
     }
@@ -72,10 +72,10 @@ const addListener = (id, callback, eventType = 'click') => {
    *
    * @returns {boolean} Word is all text, at least 3 characters, and is unique
    */
-  const isValidWord = word => {
+  const isValidWord = (word) => {
     const words = getWordList();
     return (        //Richy Note* is this like a if statement??
-      /[^A-Z]/.test(word) && //Only text   //error - line 78 - changed "!/[^A-Z]/" to "/[^A-Z]/" //why return not True?
+      [A-Z].test(word) && //Only text   //error - line 78 - changed "!/[^A-Z]/" to "/[^A-Z]/" //why return not True?
       word.length >= 3 && //Word length at least 3 //error - line79 changed "<" to ">=""
       !words.includes(word)
     ); //Not allowing duplicates
@@ -85,7 +85,7 @@ const addListener = (id, callback, eventType = 'click') => {
    * Adds word to word bank, with a trash can icon
    * @param {string} word - word to add to word bank
    */
-  const writeWordToList = word => { //line 88 changed "writeWrodToList" to "writeWordToList"
+  const writeWordToList = (word) => { //line 88 changed "writeWrodToList" to "writeWordToList"
     const li = document.createElement('li'); //*Richy note can you name a variable with an element name??
   
     const trashButton = document.createElement('div');
@@ -119,7 +119,7 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const getWordList = () => {
     let words = [];
-    const liElements = getNextWordsContainer().children;// error - line 122 changed "child" to "children" console says .child is undefined and w3schools does not list child under properties/method. "children" returns an HTMLCollection of element child elements https://www.w3schools.com/jsref/dom_obj_all.asp
+    const liElements = getNextWordsContainer().children; // error - line 122 changed "child" to "children" console says .child is undefined and w3schools does not list child under properties/method. "children" returns an HTMLCollection of element child elements https://www.w3schools.com/jsref/dom_obj_all.asp
                                                         //get the collection of li's child elements
     for (const liElement of liElements) {
       words.push(liElement.firstChild.innerText); //*Richy note - this pushes the first child node of ???? to words array
@@ -131,7 +131,8 @@ const addListener = (id, callback, eventType = 'click') => {
   /**
    * Helper method to get the word bank
    */
-  const getNextWordsContainer = () =>{ document.getElementById('next-word-list')}; // line 134 added missing {} to function? *Where is 'next-words'
+  const getNextWordsContainer = () =>{ document.getElementById('next-word-list')
+console.log("test")}; // line 134 added missing {} to function? *Where is 'next-words'
                                                                               // line 134 changed "next-word" to "next-word-list"   
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////

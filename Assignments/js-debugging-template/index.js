@@ -5,7 +5,7 @@
  * @param {string} eventType defaults to click, but can be any event type
  */
 const addListener = (id, callback, eventType = 'click') => {
-    document.getElementById(id).addEventListener(eventType, callback); //Line 8 - changed getElementsByClassName to getElementById? why is this the only one that works.
+    document.getElementById(id).addEventListener(eventType, callback); //error - Line 8 - changed getElementsByClassName to getElementById? why is this the only one that works.
   };
   
   /**
@@ -18,13 +18,13 @@ const addListener = (id, callback, eventType = 'click') => {
   
     const word = wordInput.innerText.toUpperCase();
   
-    if (!isValidWord(word)) {
+    if (isValidWord(word)) { // error - Line 21 - changed "!isValidWord(word)" to "isValidWord(word)" //richy note. If not Valid word, remove error class else add error??
       wordInput.classList.toggle('error', false); //Remove error class from input
   
       writeWordToList(word);
   
       wordInput.value = ''; //Clear input text
-    }else { //added "}" to line.
+    }else { //error line 27- added "}" to line.
       wordInput.classList.toggle('error', true); //Add error class to input
     }
   };
@@ -35,7 +35,7 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const onCreate = e => {
     resetError();
-    const words = getWordList(); //Line 38 changed "word" to "words"
+    const words = getWordList(); //error - Line 38 changed "word" to "words"
     const height = Number(document.getElementById('height').value);
     const width = Number(document.getElementById('width').value);
   
@@ -119,7 +119,7 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const getWordList = () => {
     let words = [];
-    const liElements = getNextWordsContainer().childNodes;// error - line 122 changed "child" to "children" console says .child is undefined and w3schools does not list child under properties/method. "children" returns an HTMLCollection of element child elements https://www.w3schools.com/jsref/dom_obj_all.asp
+    const liElements = getNextWordsContainer().children;// error - line 122 changed "child" to "children" console says .child is undefined and w3schools does not list child under properties/method. "children" returns an HTMLCollection of element child elements https://www.w3schools.com/jsref/dom_obj_all.asp
                                                         //get the collection of li's child elements
     for (const liElement of liElements) {
       words.push(liElement.firstChild.innerText); //*Richy note - this pushes the first child node of ???? to words array

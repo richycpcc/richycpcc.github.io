@@ -12,11 +12,11 @@ const addListener = (id, callback, eventType = 'click') => {
    * Adds a word to the word search set up
    * @param {Event} e
    */
-  const onAddWord = e => {
+  const onAddWord = (e) => {
     resetError();
     const wordInput = document.getElementById('new-word');
   
-    const word = wordInput.innerText.toUpperCase();
+    const word = wordInput.value.toUpperCase();//error - Line19 - replaced "innerText" to "value"//console not getting input. Is a variable an HTML element for innerText ? https://www.w3schools.com/jsref/prop_attr_value.asp
   
     if (isValidWord(word)) { // error - Line 21 - changed "!isValidWord(word)" to "isValidWord(word)" //richy note. If not Valid word, remove error class else add error??
       wordInput.classList.toggle('error', false); //Remove error class from input
@@ -33,7 +33,7 @@ const addListener = (id, callback, eventType = 'click') => {
    * Handles user clicking create. Will either generate grid or write an error
    * @param {Event} e 
    */
-  const onCreate = e => {
+  const onCreate = (e) => {
     resetError();
     const words = getWordList(); //error - Line 38 changed "word" to "words"
     const height = Number(document.getElementById('height').value);

@@ -33,7 +33,7 @@ const addListener = (id, callback, eventType = 'click') => {
    * Handles user clicking create. Will either generate grid or write an error
    * @param {Event} e 
    */
-  const onCreate = (e) => {
+  const onCreate = (e) => { 
     resetError();
     const words = getWordList(); //error - Line 38 changed "word" to "words"
     const height = Number(document.getElementById('height').value);
@@ -75,7 +75,7 @@ const addListener = (id, callback, eventType = 'click') => {
   const isValidWord = (word) => {
     const words = getWordList();
     return (        //Richy Note* is this like a if statement??
-      [A-Z].test(word) && //Only text   //error - line 78 - changed "!/[^A-Z]/" to "/[^A-Z]/" //why return not True?
+      !/[^A-Z]/.test(word) && //Only text   //error - line 78 - changed "!/[^A-Z]/" to "/[^A-Z]/" //why return not True?
       word.length >= 3 && //Word length at least 3 //error - line79 changed "<" to ">=""
       !words.includes(word)
     ); //Not allowing duplicates
@@ -86,10 +86,10 @@ const addListener = (id, callback, eventType = 'click') => {
    * @param {string} word - word to add to word bank
    */
   const writeWordToList = (word) => { //line 88 changed "writeWrodToList" to "writeWordToList"
-    const li = document.createElement('li'); //*Richy note can you name a variable with an element name??
+    const li = document.createElement('li'); //*Richy note - can you name a variable with an element name??
   
     const trashButton = document.createElement('div');
-    trashButton.classList.add('icon') //error line 92 - changed "class" to "classList"
+    trashButton.classList.add('icon'); //error line 92 - changed "class" to "classList" ****Added ; to end of line! is this suppose to be a bug??
     let trashIcon = document.createElement('i'); //*richy note - an "i" element is in idiomatic Text Element, fancy way of saying italic?
     trashIcon.classList.add('fa', 'fa-trash-alt');
     trashButton.addEventListener('click', deleteWord); 
@@ -108,7 +108,7 @@ const addListener = (id, callback, eventType = 'click') => {
    * Removes the given word from the word bank
    * @param {Event} e Mouse Click
    */
-  const deleteWord = e => {
+  const deleteWord = (e) => { //**added() around param /
     const li = e.currentTarget.parentNode;
     li.parentNode.remove(li);
   };
@@ -120,9 +120,9 @@ const addListener = (id, callback, eventType = 'click') => {
   const getWordList = () => {
     let words = [];
     const liElements = getNextWordsContainer().children; // error - line 122 changed "child" to "children" console says .child is undefined and w3schools does not list child under properties/method. "children" returns an HTMLCollection of element child elements https://www.w3schools.com/jsref/dom_obj_all.asp
-                                                        //get the collection of li's child elements
+   //get the collection of li's child elements
     for (const liElement of liElements) {
-      words.push(liElement.firstChild.innerText); //*Richy note - this pushes the first child node of ???? to words array
+      words.push(liElement.firstChild.innerText); //*Richy note - this pushes the first child node of next work list to words array
     }
   
     return words; //Error line 128 - changed "liElements" to "words" //want to return array for list
@@ -131,9 +131,8 @@ const addListener = (id, callback, eventType = 'click') => {
   /**
    * Helper method to get the word bank
    */
-  const getNextWordsContainer = () =>{ document.getElementById('next-word-list')
-console.log("test")}; // line 134 added missing {} to function? *Where is 'next-words'
-                                                                              // line 134 changed "next-word" to "next-word-list"   
+  const getNextWordsContainer = () => document.getElementById('next-word-list');
+ // *Where is 'next-words' // line 134 changed "next-word" to "next-word-list"   
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
   ///////THERE ARE NO INTENTIONAL BUGS BELOW THIS LINE////////

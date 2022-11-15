@@ -144,3 +144,50 @@ const isNumber = () =>{
         /0-9/.test(numberInput)
     );
 }
+const isRequiredLength = () =>{
+        const requiredLength = null;
+        return(
+                requiredLength.length === num//fill in with required number for field
+
+        );
+}
+
+const isUsername =() =>{
+        const userName = null;
+        return (
+                /\w/.test(username)&&
+                userName.length === num
+        );
+}
+
+const isDate = () =>{
+        const date = null;
+        return(
+       // /\d{2}/\d{2}/\d{4}/.test(date);
+        );
+}
+
+const isPhoneNumber = () =>{
+        const phonenumber = null;
+        return(
+        /\d{3}-\d{3}-\d{4}/.test(phonenumber)
+        );
+}
+
+const isPassword = () =>{
+        const password = null;
+        return(
+        /^a-z$/.test(password) && //At least one uppercase letter
+        /^A-Z$/.test(password) && //At least one lowercase letter
+        /^\d$/.test(password) && //At least one digit
+        /^\W$/.test(password) // At least one specal character
+        )
+}
+
+const isLetters =() =>{
+        const letter = null;
+        return(
+        /A-Za-z/.test(letter)
+        )
+
+}

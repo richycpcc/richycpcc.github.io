@@ -133,6 +133,7 @@ const addListener = (id, callback, eventType = 'click') => {
    */
   const getNextWordsContainer = () => document.getElementById('next-word-list');
  // *Where is 'next-words' // line 134 changed "next-word" to "next-word-list"   
+ // reason why {} are omitted in this function https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
   ////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////
   ///////THERE ARE NO INTENTIONAL BUGS BELOW THIS LINE////////

@@ -155,7 +155,7 @@ const isRequiredLength = () =>{
 const isUsername =() =>{
         const userName = null;
         return (
-                /\w/.test(username)&&
+                /\w/.test(userName)&&
                 userName.length === num
         );
 }

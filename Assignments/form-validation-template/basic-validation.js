@@ -117,7 +117,7 @@ const writeErrorList = () => {
     textSpan.appendChild(document.createTextNode("errorText"));
   
     newListItem.appendChild(textSpan);
-    document.querySelector('ul').appendChild(newListItem)
+    document.querySelector('ul').appendChild(newListItem);
   
   };
 
@@ -153,19 +153,18 @@ const isRequiredLength = () =>{
         );
 }
 
-const isUsername =() =>{
-        const userName = null;
+const isUsername =(userNameInput) =>{
+        const userName = userNameInput;
         return (
                 /\w/.test(userName)&&
-                userName.length === num
+                userName.length === 5
         );
 }
 
 const isDate = () =>{
         const date = null;
         return(
-       // /\d{2}/\d{2}/\d{4}/.test(date);
-        );
+        /^(0[1-9]|1[012])[- /.] (0[1-9]|[12][0-9]|3[01])[- /.] (19|20)\d\d$/.test(date);
 }
 
 const isPhoneNumber = () =>{
@@ -175,13 +174,13 @@ const isPhoneNumber = () =>{
         );
 }
 
-const isPassword = () =>{
+const isPassword = (passwordInput) =>{
         const password = null;
         return(
-        /^a-z$/.test(password) && //At least one uppercase letter
-        /^A-Z$/.test(password) && //At least one lowercase letter
-        /^\d$/.test(password) && //At least one digit
-        /^\W$/.test(password) // At least one specal character
+        /^a-z$/.test(passwordInput) && //At least one uppercase letter
+        /^A-Z$/.test(passwordInput) && //At least one lowercase letter
+        /^\d$/.test(passwordInput) && //At least one digit
+        /^\W$/.test(passwordinput) // At least one specal character
         )
 }
 
@@ -193,6 +192,43 @@ const isLetters =() =>{
 
 }
 
+const firstnameInput = document.getElementById('firstname');
+const lastnameInput = document.getElementById('lastname');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
+const zipInput = document.getElementById('zip');
+const employeeId = document.getElementById('ID');
+const form = document.getElementById('novalidate');
+
+
+form.addEventListener('submit', e => {
+       let errorMessage = [];
+        //const classList = document.querySelector('class');
+       // if (classList.value === "required alphabetic" ){}
+                if (firstnameInput == '' || firstnameInput == null){
+                        errorMessage.push('Required fields must have a value that is not empty or whitespace.')
+                }
+        
+                if (lastnameInput == '' || firstnameInput == null){
+                        errorMessage.push('Required fields must have a value that is not empty or whitespace.')
+                }
+                if (isUsername != true){
+                        errorMessage.push('Required_size field lengths must exactly match the minlength attribute of that field.')
+                        errorMessage.push('Username fields must contain only alphanumeric characters.')
+                }
+                if(isPassword != true){
+                        errorMessage.push("Password fields must contain one or more of each of the following types:uppercase letters, lowercase letters, numbers, special characters.")
+
+                }
+
+        e.preventDefault();
+})
+
+
+
+
+
+/*
 const validateForm = formSelector => {
         const formElement = document.querySelector(formSelector)
         
@@ -218,3 +254,4 @@ const validateForm = formSelector => {
         }
 }
 validateForm('novalidate')
+*/

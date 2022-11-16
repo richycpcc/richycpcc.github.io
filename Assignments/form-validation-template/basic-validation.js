@@ -193,3 +193,28 @@ const isLetters =() =>{
 
 }
 
+const validateForm = formSelector => {
+        const formElement = document.querySelector(formSelector)
+        
+        const validateSingleFormGroup = formGroup => {
+                const label = formGroup.querySelector('label');
+                const input = formGroup.querySelector('input')
+        };
+        
+        formElement.setAttribute('novalidate','');
+
+
+        formElement.addEventListener('submit',event=>{
+                event.preventDefault();
+                validateAllFormGroups(formElement);
+        });
+
+        const validateAllFormGroups = formToValidate =>{
+                const formGroups = Array.from(formToValidate.querySelectorAll(.'formGroups'))
+
+                formGroups.forEach(formGroup=>{
+                        validateSingleFormGroup(formGroup);
+                })
+        }
+}
+validateForm('novalidate')

@@ -9,18 +9,36 @@
         ~ <a href="https://www.linkedin.com/in/richy-phongsavath-a919661b7/">LinkedIn</a>
     </nav> 
         <p>
-            <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Frichycpcc.github.io">
+            <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
                 <img style="border:0;width:88px;height:31px"
                     src="images/valid_html5.png"
                     alt="Validate html."
+                    id="html_validatin_button"
                 >
             </a>         
-            <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Frichycpcc.github.io%2F#css">
+            <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
                 <img style="border:0;width:88px;height:31px"
                     src="images/valid-css.png"
                     alt="Valid CSS!" 
+                    id="css_validation_buton"
                 >
             </a>
         </p>
         <p><a href="https://richycpcc.github.io/rbplcc/index">Designed by RBP LLC</a></p>
+        <script>
+            document
+              .getElementById("validation_link_html")
+              .setAttribute(
+                "href",
+                "https://validator.w3.org/check?uri=" + location.href
+              );
+            document
+              .getElementById("validation_link_css")
+              .setAttribute(
+                "href",
+                "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href
+              );
+        </script>
+            
+    
 </footer>

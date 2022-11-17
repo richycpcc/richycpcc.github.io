@@ -7,42 +7,42 @@ const validateForm = (event) => {
     const isRequiredValid = (input) => {
         const rule=/[\s]/;
         return rule.test(input.value);
-    };
+    }
 
-    const isAlphabeticValid = (input) =>{
+    const isAlphabeticValid = (input) => {
         const rule = /^A-Za-z$/;
         return rule.test(input.value);
-    };
+    }
 
-    const isPasswordValid = (input) =>{
+    const isPasswordValid = (input) => {
         const rule = /^A-Za-z\d\W$/; //At least one uppercase letter, At least one lowercase letter, At least one digit, At least one specal character
         return rule.test(input.value);
-    };
+    }
 
-    const isLengthValid = (input) =>{
+    const isLengthValid = (input) => {
         const ruleLength = input.getAttribute("minlength");
         return input.value.length === parseInt(ruleLength);
-    };
+    }
 
     const isNumberValid = (input) => {
         const rule = /^0-9$/;
         return rule.test(input.value);
-    };
+    }
 
     const isphoneValid = (input) => {
         const rule =/\d{3}-\d{3}-\d{4}/;
         return rule.test(input.value);
-    };
+    }
 
     const isDateValid = (input) => {
         const rule = /^\d{2}[- /.] d{2}[- /.] \d{4}$/;
         return rule.test(input.value);
 
-    };
+    }
 
     const isUsernameValid = () => {
         //need to update
-    };
+    }
 
     //Get all forms within the HTML page
     const forms = document.querySelectorAll('form');
@@ -68,52 +68,53 @@ const validateForm = (event) => {
             if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input)))
             {
                     errorList.push('Alphabetic fields must be a series of alphabetic characters.');
-            };
+            }
             
 
-            if(input.classList.value.includes('username') && (isUsernameValid(input))){
-                    errorList.push('Username fields must contain only alphanumeric characters.');
-                }
-                else if (isLengthValid(input)===false){
-                    errorList.push('Username fields must contain at least 8 characters.');
-                };
+            if(input.classList.value.includes('username') && (!isUsernameValid(input)))
+            {
+                errorList.push('Username fields must contain only alphanumeric characters.');
             }
+                if (!isLengthValid(input))
+                {
+                    errorList.push('Username fields must contain at least 8 characters.');
+                }
+            
 
-            if(input.classList === 'password'){
-                if (isPasswordValid(input)===false){
+            if(input.classList.value.includes ('password') && (!isPasswordValid(input)))
+                {
                 errorList.push('Password fields must contain one or more of each of the following types:uppercase letters, lowercase letters, numbers, special characters.');
                 }
-            }
+            
 
-            if(input.classList === 'required_size'){
-                if (isLengthValid(input)===false){
+            if(input.classList.value.includes('required_size') && (!isLengthValid(input)))
+                {
                 errorList.push('Required_size field lengths must exactly match the minlength attribute of that field.');
                 }
-            }
+            
 
-            if(input.classList.value.includes('phone')){
-                if (isphoneValid(input)===false){
+            if(input.classList.value.includes('phone') && (!isphoneValid(input)))
+                {
                 errorList.push('Phone fields must match the format of XXX-XXX-XXXX.');
                 }
-            }
+            
 
-            if(input.classList === 'date'){
-                if (isDateValid(input) === false){
+            if(input.classList.value.includes('date') && (!isDateValid(input)))
+                {
                 errorList.push('Date fields must match the format of XX/XX/XXXX.');
                 }
-            }
+            
 
-            if(input.classList === 'numeric'){
-                if (isNumberValid(input) === false){
+            if(input.classList.value.includes('numeric') && (!isNumberValid(input)))
+                {
                 errorList.push('Numeric fields must be a series of numbers.');
                 }
-            }
+            
             /*//proof of how dumb I am :)
             if(input.classList = 'numeric'){
                 !isNumberValid(input);
                 errorList.push('Numeric fields must be a series of numbers.');
             */
-        //} 
 
             if(errorList.length > 0){
                 //writeErrorList(errorList);
@@ -127,7 +128,7 @@ const validateForm = (event) => {
 
         }//end for loop - input
 
-    //}// end for loop - form
+    }// end for loop - form
 
 
     /*

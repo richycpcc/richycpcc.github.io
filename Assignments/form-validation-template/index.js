@@ -2,7 +2,7 @@
 
 const validateForm = (event) => {
     event.preventDefault();
-
+console.log('Start Valid');
     //Validation Functions
     const isRequiredValid = (input) => {
         const rule=/[\s]/;
@@ -47,22 +47,31 @@ const validateForm = (event) => {
     //Get all forms within the HTML page
     const forms = document.querySelectorAll('form');
 
-    //Loop forms within HTML page for validation
-    for (const form of forms){
+    const errorsDiv = event.target.parentNode.querySelector('.errors');
+    errorsDiv.textContent = ""; // clears out error field for new list
 
+    //Loop forms within HTML page for validation
+   // for (const form of forms){
+    const form = event.target;
+
+        console.log("hi")
+
+       // event.preventDefault();
         //Get all inputs within the form
         const inputs = form.querySelectorAll('input');
-
+            const errorList = []; 
         //Loop a single input through the vaildation errors on the form
         for (const input of inputs){
-            const errorList = [];    
-            
+   //if characters in input field, then do action 
+   //else do no action unless requried
+        if (input.value == "" && input.classList.value.includes('required')){
+
             //if statements - match to class
             if(input.classList.value.includes('required') && (!isRequiredValid(input)))
             {
-                    errorList.push('Required fields must have a value that is not empty or whitespace.');
-                    console.log(input.value);
-                    console.log(errorList);
+                errorList.push('Required fields must have a value that is not empty or whitespace.');
+                console.log(input.value);
+                console.log(errorList);
             }
             
             if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input)))
@@ -70,90 +79,71 @@ const validateForm = (event) => {
                     errorList.push('Alphabetic fields must be a series of alphabetic characters.');
             }
             
-
             if(input.classList.value.includes('username') && (!isUsernameValid(input)))
             {
                 errorList.push('Username fields must contain only alphanumeric characters.');
             }
-                if (!isLengthValid(input))
-                {
-                    errorList.push('Username fields must contain at least 8 characters.');
-                }
-            
 
-            if(input.classList.value.includes ('password') && (!isPasswordValid(input)))
-                {
-                errorList.push('Password fields must contain one or more of each of the following types:uppercase letters, lowercase letters, numbers, special characters.');
-                }
+            if (input.classList.value.includes('username') && (!isLengthValid(input)))
+            {
+                errorList.push('Username fields must contain at least 8 characters.');
+            }
             
+            if(input.classList.value.includes ('password') && (!isPasswordValid(input)))
+            {
+                errorList.push('Password fields must contain one or more of each of the following types: uppercase letters, lowercase letters, numbers, special characters.');
+            }
 
             if(input.classList.value.includes('required_size') && (!isLengthValid(input)))
-                {
+            {
                 errorList.push('Required_size field lengths must exactly match the minlength attribute of that field.');
-                }
+            }
             
-
             if(input.classList.value.includes('phone') && (!isphoneValid(input)))
-                {
+            {
                 errorList.push('Phone fields must match the format of XXX-XXX-XXXX.');
-                }
+            }
             
-
             if(input.classList.value.includes('date') && (!isDateValid(input)))
-                {
+            {
                 errorList.push('Date fields must match the format of XX/XX/XXXX.');
-                }
-            
-
+            }
+        
             if(input.classList.value.includes('numeric') && (!isNumberValid(input)))
-                {
+            {
                 errorList.push('Numeric fields must be a series of numbers.');
-                }
-            
+            }
+        }else{
+            errorList.push('No Problemo');
+        }   
             /*//proof of how dumb I am :)
             if(input.classList = 'numeric'){
                 !isNumberValid(input);
                 errorList.push('Numeric fields must be a series of numbers.');
             */
+        } //end for loop - input
 
-            if(errorList.length > 0){
-                //writeErrorList(errorList);
-                event.preventDefault();
-                //writeErrorList(errorList);
-                document.querySelector('.errors').innerHTML = errorList.join(',');
-                document.querySelector('.errors').style="color:red";
-                console.log(errorList);        
+        if(errorList.length > 0) {
+            const newUnorderedList = document.createElement('ul');
+            errorsDiv.appendChild(newUnorderedList);
+            errorsDiv.style = "color:red";
 
-            } //end if
+            for (const error of errorList){                
+                const newListItem = document.createElement('li');
+                const liText = document.createTextNode(error);
+                newListItem.appendChild(liText);
+                newUnorderedList.appendChild(newListItem);
+            }
 
-        }//end for loop - input
-
-    }// end for loop - form
-
-
-    /*
-    //Create error list in Error Div
-    const writeErrorList = (errorList) => { 
-
-        //create the ul element
-        const newErrorListu = document.createElement('ul');   
-        const errorDivLocation = document.querySelector('.errors');
-        newErrorListu.append(errorDivLocation); //need to append to <div class="errors">?
-        newErrorListu.style="color:red";
-        const newErrorList = [...new Set (errorList)];
-        //loops through errorList array to create individual li elements and textnodes
-        for (const error of newErrorList){
-
-            const newErrorListItem = document.createElement('li');
-            newErrorList.appendChild(newErrorListItem);
-
-            const errorText = document.createTextNode(error);
-            newErrorListItem.appendChild(errorText);
-        } //end for loop
-
-    } //end function - writeErrorList
-    */  
+        } //end if
+ //   } // end for loop - form
 
 } //end function - validateForm
 
-document.querySelector('form').addEventListener('submit',validateForm);
+const formButtons = document.querySelectorAll('form');
+for (const button of formButtons){
+    button.addEventListener('submit', validateForm);
+
+}
+
+//document.querySelector('form').addEventListener('submit', alert('Forms sumbitted'));

@@ -61,7 +61,7 @@ const validateForm = (event) => {
             if(input.classList.value === ('required')){ //getElementsByClassName()
                 if (isRequiredValid(input) === false){
                     errorList.push('Required fields must have a value that is not empty or whitespace.');
-                    console.log(input.value +);
+                    console.log(input.value);
                     console.log(errorList);
                 }
             }

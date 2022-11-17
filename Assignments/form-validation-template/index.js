@@ -5,7 +5,7 @@ const validateForm = (event) => {
 
     //Validation Functions
     const isRequiredValid = (input) => {
-        const rule=/[\s]/
+        const rule=/[\s]/;
         return rule.test(input.value);
     };
 
@@ -15,27 +15,27 @@ const validateForm = (event) => {
     };
 
     const isPasswordValid = (input) =>{
-        const rule = /^A-Za-z\d\W$/ //At least one uppercase letter, At least one lowercase letter, At least one digit, At least one specal character
+        const rule = /^A-Za-z\d\W$/; //At least one uppercase letter, At least one lowercase letter, At least one digit, At least one specal character
         return rule.test(input.value);
     };
 
     const isLengthValid = (input) =>{
-        const ruleLength = input.getAttribute("minlength")
+        const ruleLength = input.getAttribute("minlength");
         return input.value.length === parseInt(ruleLength);
     };
 
     const isNumberValid = (input) => {
-        const rule = /^0-9$/
+        const rule = /^0-9$/;
         return rule.test(input.value);
     };
 
     const isphoneValid = (input) => {
-        const rule =/\d{3}-\d{3}-\d{4}/
+        const rule =/\d{3}-\d{3}-\d{4}/;
         return rule.test(input.value);
     };
 
     const isDateValid = (input) => {
-        const rule = /^\d{2}[- /.] d{2}[- /.] \d{4}$/
+        const rule = /^\d{2}[- /.] d{2}[- /.] \d{4}$/;
         return rule.test(input.value);
 
     };
@@ -55,25 +55,23 @@ const validateForm = (event) => {
 
         //Loop a single input through the vaildation errors on the form
         for (const input of inputs){
-        const errorList = [];    
+            const errorList = [];    
             
             //if statements - match to class
-            if(input.classList.value === ('required')){ //getElementsByClassName()
-                if (isRequiredValid(input) === false){
+            if(input.classList.value.includes('required') && (!isRequiredValid(input)))
+            {
                     errorList.push('Required fields must have a value that is not empty or whitespace.');
                     console.log(input.value);
                     console.log(errorList);
-                }
             }
-
-            if(input.classList == 'alphabetic'){
-                 if(isAlphabeticValid(input) === false){
+            
+            if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input)))
+            {
                     errorList.push('Alphabetic fields must be a series of alphabetic characters.');
-                 };
-            }
+            };
+            
 
-            if(input.classList == 'username'){//need to add length error check as well
-                if (isUsernameValid(input) === false){
+            if(input.classList.value.includes('username') && (isUsernameValid(input))){
                     errorList.push('Username fields must contain only alphanumeric characters.');
                 }
                 else if (isLengthValid(input)===false){
@@ -93,7 +91,7 @@ const validateForm = (event) => {
                 }
             }
 
-            if(input.classList === 'phone'){
+            if(input.classList.value.includes('phone')){
                 if (isphoneValid(input)===false){
                 errorList.push('Phone fields must match the format of XXX-XXX-XXXX.');
                 }
@@ -129,7 +127,7 @@ const validateForm = (event) => {
 
         }//end for loop - input
 
-    }// end for loop - form
+    //}// end for loop - form
 
 
     /*

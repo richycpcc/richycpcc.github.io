@@ -2,15 +2,18 @@
 
 const validateForm = (event) => {
     event.preventDefault();
-    //regEx
-    const requiredRegEx = /[\s]/;
-    const alphabeticRegEx = /([A-Za-z])\w+/;
-    const numberRegEx = /\d+/s;
-    const phoneRegEx = /\d{3}-\d{3}-\d{4}/;
-    const dateRegEx = /^\d{2}[- /.] d{2}[- /.] \d{4}$/;
-    const passwordRegEx = /^A-Za-z\d\W$/;
 
-    //Validation Functions
+        //Regular Expression Bank
+    const requiredRegEx = /[\s]/;
+    const alphabeticRegEx = /^[A-Za-z]+$/;
+    const numberRegEx = /^\d+$/s;
+    const phoneRegEx = /\d{3}-\d{3}-\d{4}/;
+    const dateRegEx = /^\d{2}[\/]\d{2}[\/]\d{4}$/;
+    const alphanumericRegEx = /^[A-Za-z0-9]*$/;
+    const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/
+    // /^[A-Za-z\d\W]$/
+ 
+        //Validation Functions
     const isRequiredValid = (input) => {
         const test = requiredRegEx.test(input.value);
         return test;
@@ -22,8 +25,8 @@ const validateForm = (event) => {
     }
 
     const isPasswordValid = (input) => {
-        const rule = /^A-Za-z\d\W$/; //At least one uppercase letter, At least one lowercase letter, At least one digit, At least one specal character
-        return rule.test(input.value);
+        const test = passwordRegEx.test(input.value); //At least one uppercase letter, At least one lowercase letter, At least one digit, At least one specal character
+        return test;
     }
 
     const isLengthValid = (input) => {
@@ -47,53 +50,51 @@ const validateForm = (event) => {
 
     }
 
-    const isUsernameValid = () => {
-        //need to update
+    const isAlphanumericValid = (input) => {
+        const test = alphanumericRegEx.test(input.value);
+        return test;
     }
 
-    //Get all forms within the HTML page
+    const isUsernameLengthValid =(input) => {
+        const requiredUsernameLength = 8;
+        const inputUsernameLength = input.value.length
+        return inputUsernameLength >= requiredUsernameLength
+    }
+
+        //Get all forms within the HTML page
     const forms = document.querySelectorAll('form');
 
     const errorsDiv = event.target.parentNode.querySelector('.errors');
     errorsDiv.textContent = ""; // clears out error field for new list
 
-    //Loop forms within HTML page for validation
-   // for (const form of forms){
+        //addEventListener to each form
     const form = event.target;
 
-        console.log("hi")
-
-       // event.preventDefault();
+      
         //Get all inputs within the form
-        const inputs = form.querySelectorAll('input');
-            const errorList = []; 
+    const inputs = form.querySelectorAll('input');
+    const errorList = []; 
+
         //Loop a single input through the vaildation errors on the form
-        for (const input of inputs){
-            let requiredCheck = input.classList.value.includes('required')
-   //if characters in input field, then do action 
-   //else do no action unless requried
+    for (const input of inputs){
+        let requiredCheck = input.classList.value.includes('required')
+
+        //if characters in input field, then do action 
+        //else do no action unless requried
         if (input.value != ""){
 
-            //if statements - match to class
-            /*
-            if(input.classList.value.includes('required') && (!isRequiredValid(input)))
+                //if statements - match to class
+            if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input)))
             {
-                errorList.push('Required fields must have a value that is not empty or whitespace.');
-                console.log(input.value);
-                console.log(errorList);
-            }
-            */
-            if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input.value)))
-            {
-                    errorList.push('Alphabetic fields must be a series of alphabetic characters.');
+                errorList.push('Alphabetic fields must be a series of alphabetic characters.');
             }
             
-            if(input.classList.value.includes('username') && (!isUsernameValid(input)))
+            if(input.classList.value.includes('username') && (!isAlphanumericValid(input)))
             {
                 errorList.push('Username fields must contain only alphanumeric characters.');
             }
 
-            if (input.classList.value.includes('username') && (!isLengthValid(input)))
+            if (input.classList.value.includes('username') && (!isUsernameLengthValid(input)))
             {
                 errorList.push('Username fields must contain at least 8 characters.');
             }
@@ -120,41 +121,37 @@ const validateForm = (event) => {
         
             if(input.classList.value.includes('numeric') && (!isNumberValid(input)))
             {
-                errorList.push('Numeric fields must be a series of numbers.');
+               errorList.push('Numeric fields must be a series of numbers.');
             }
-        } else if(input.classList.value.includes('required') && (!isRequiredValid(input))){
-             errorList.push('Required fields must have a value that is not empty or whitespace.');
-        }else{
-            errorList.push('No Problemo');
-        } 
-            /*//proof of how dumb I am :)
-            if(input.classList = 'numeric'){
-                !isNumberValid(input);
-                errorList.push('Numeric fields must be a series of numbers.');
-            */
-        } //end for loop - input
+        }
+        else if(input.classList.value.includes('required') && (!isRequiredValid(input)))
+        {
+            errorList.push('Required fields must have a value that is not empty or whitespace.');
+        }
+        else
+        {
+            
+        } // end if - validations
 
-        if(errorList.length > 0) {
-            const newUnorderedList = document.createElement('ul');
-            errorsDiv.appendChild(newUnorderedList);
-            errorsDiv.style = "color:red";
+    } // end for loop - input
 
-            for (const error of errorList){                
-                const newListItem = document.createElement('li');
-                const liText = document.createTextNode(error);
-                newListItem.appendChild(liText);
-                newUnorderedList.appendChild(newListItem);
-            }
+    if(errorList.length > 0) {
+        const newUnorderedList = document.createElement('ul');
+        errorsDiv.appendChild(newUnorderedList);
+         errorsDiv.style = "color:red";
 
-        } //end if
- //   } // end for loop - form
+        for (const error of errorList){                
+            const newListItem = document.createElement('li');
+            const liText = document.createTextNode(error);
+            newListItem.appendChild(liText);
+            newUnorderedList.appendChild(newListItem);
+        } // end for - error
 
-} //end function - validateForm
+    } // end if
+
+} // end function - validateForm
 
 const formButtons = document.querySelectorAll('form');
 for (const button of formButtons){
     button.addEventListener('submit', validateForm);
-
-}
-
-//document.querySelector('form').addEventListener('submit', alert('Forms sumbitted'));
+} // end for - addEventListeners

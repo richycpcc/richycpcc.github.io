@@ -2,16 +2,23 @@
 
 const validateForm = (event) => {
     event.preventDefault();
-console.log('Start Valid');
+    //regEx
+    const requiredRegEx = /[\s]/;
+    const alphabeticRegEx = /([A-Za-z])\w+/;
+    const numberRegEx = /\d+/s;
+    const phoneRegEx = /\d{3}-\d{3}-\d{4}/;
+    const dateRegEx = /^\d{2}[- /.] d{2}[- /.] \d{4}$/;
+    const passwordRegEx = /^A-Za-z\d\W$/;
+
     //Validation Functions
     const isRequiredValid = (input) => {
-        const rule=/[\s]/;
-        return rule.test(input.value);
+        const test = requiredRegEx.test(input.value);
+        return test;
     }
 
     const isAlphabeticValid = (input) => {
-        const rule = /^A-Za-z$/;
-        return rule.test(input.value);
+        const test = alphabeticRegEx.test(input.value);
+        return test;
     }
 
     const isPasswordValid = (input) => {
@@ -25,18 +32,18 @@ console.log('Start Valid');
     }
 
     const isNumberValid = (input) => {
-        const rule = /^0-9$/;
-        return rule.test(input.value);
+        const test = numberRegEx.test(input.value);
+        return test;
     }
 
     const isphoneValid = (input) => {
-        const rule =/\d{3}-\d{3}-\d{4}/;
-        return rule.test(input.value);
+        const test = phoneRegEx.test(input.value);
+        return test;
     }
 
     const isDateValid = (input) => {
-        const rule = /^\d{2}[- /.] d{2}[- /.] \d{4}$/;
-        return rule.test(input.value);
+        const test = dateRegEx.test(input.value);
+        return test;
 
     }
 
@@ -62,19 +69,21 @@ console.log('Start Valid');
             const errorList = []; 
         //Loop a single input through the vaildation errors on the form
         for (const input of inputs){
+            let requiredCheck = input.classList.value.includes('required')
    //if characters in input field, then do action 
    //else do no action unless requried
-        if (input.value == "" && input.classList.value.includes('required')){
+        if (input.value != ""){
 
             //if statements - match to class
+            /*
             if(input.classList.value.includes('required') && (!isRequiredValid(input)))
             {
                 errorList.push('Required fields must have a value that is not empty or whitespace.');
                 console.log(input.value);
                 console.log(errorList);
             }
-            
-            if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input)))
+            */
+            if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input.value)))
             {
                     errorList.push('Alphabetic fields must be a series of alphabetic characters.');
             }
@@ -113,9 +122,11 @@ console.log('Start Valid');
             {
                 errorList.push('Numeric fields must be a series of numbers.');
             }
+        } else if(input.classList.value.includes('required') && (!isRequiredValid(input))){
+             errorList.push('Required fields must have a value that is not empty or whitespace.');
         }else{
             errorList.push('No Problemo');
-        }   
+        } 
             /*//proof of how dumb I am :)
             if(input.classList = 'numeric'){
                 !isNumberValid(input);

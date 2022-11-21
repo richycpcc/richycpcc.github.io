@@ -1,5 +1,8 @@
 /////////
-
+/**
+ * 
+ * @param {*} event 
+ */
 const validateForm = (event) => {
     event.preventDefault();
 
@@ -14,8 +17,13 @@ const validateForm = (event) => {
     // /^[A-Za-z\d\W]$/
  
         //Validation Functions
+    /**
+     * 
+     * @param {*} input 
+     * @returns 
+     */
     const isRequiredValid = (input) => {
-        const test = requiredRegEx.test(input.value);
+        const test = requiredRegEx.test(input.value.trim());
         return test;
     }
 
@@ -67,7 +75,7 @@ const validateForm = (event) => {
     const errorsDiv = event.target.parentNode.querySelector('.errors');
     errorsDiv.textContent = ""; // clears out error field for new list
 
-        //addEventListener to each form
+        //targeting specific form to validate
     const form = event.target;
 
       
@@ -81,7 +89,9 @@ const validateForm = (event) => {
 
         //if characters in input field, then do action 
         //else do no action unless requried
-        if (input.value != ""){
+        //validate Function
+        //const validateInput = (event) => {}
+        if (input.value.trim() != ""){
 
                 //if statements - match to class
             if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input)))
@@ -124,17 +134,15 @@ const validateForm = (event) => {
                errorList.push('Numeric fields must be a series of numbers.');
             }
         }
-        else if(input.classList.value.includes('required') && (!isRequiredValid(input)))
+        else if(input.classList.value.includes('required'))// does required show up as required_size as well. 
         {
             errorList.push('Required fields must have a value that is not empty or whitespace.');
-        }
-        else
-        {
-            
         } // end if - validations
 
     } // end for loop - input
 
+        //error list generating
+        // const errorList = (errorList) => {};
     if(errorList.length > 0) {
         const newUnorderedList = document.createElement('ul');
         errorsDiv.appendChild(newUnorderedList);
@@ -147,6 +155,10 @@ const validateForm = (event) => {
             newUnorderedList.appendChild(newListItem);
         } // end for - error
 
+    }
+    else
+    {
+        //form.submit();
     } // end if
 
 } // end function - validateForm

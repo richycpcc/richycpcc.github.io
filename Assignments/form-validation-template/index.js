@@ -7,7 +7,6 @@ const validateForm = (event) => {
     event.preventDefault();
 
         //Regular Expression Bank
-    const requiredRegEx = /[\s]/;
     const alphabeticRegEx = /^[A-Za-z]+$/;
     const numberRegEx = /^\d+$/s;
     const phoneRegEx = /^\d{3}-\d{3}-\d{4}$/;
@@ -16,16 +15,6 @@ const validateForm = (event) => {
     const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/
  
         //Validation Functions
-    /**
-     * 
-     * @param {*} input 
-     * @returns {boolean} - validation for Regular Expression 
-     */
-    const isRequiredValid = (input) => {
-        const test = requiredRegEx.test(input.value.trim());
-        return test;
-    }
-
     /**
      * 
     * @param {*} input 

@@ -7,7 +7,7 @@ const validateForm = (event) => {
     const requiredRegEx = /[\s]/;
     const alphabeticRegEx = /^[A-Za-z]+$/;
     const numberRegEx = /^\d+$/s;
-    const phoneRegEx = /\d{3}-\d{3}-\d{4}/;
+    const phoneRegEx = /^\d{3}-\d{3}-\d{4}$/;
     const dateRegEx = /^\d{2}[\/]\d{2}[\/]\d{4}$/;
     const alphanumericRegEx = /^[A-Za-z0-9]*$/;
     const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/

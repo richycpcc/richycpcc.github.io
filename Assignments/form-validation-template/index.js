@@ -158,7 +158,7 @@ const validateForm = (event) => {
     }
     else
     {
-        //form.submit();
+        form.submit();
     } // end if
 
 } // end function - validateForm

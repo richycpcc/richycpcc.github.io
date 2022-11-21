@@ -79,7 +79,6 @@ const validateForm = (event) => {
     const isDateValid = (input) => {
         const test = dateRegEx.test(input.value);
         return test;
-
     }
     /**
      * 

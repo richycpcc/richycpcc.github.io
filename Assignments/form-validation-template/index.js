@@ -92,6 +92,7 @@ const validateForm = (event) => {
         //validate Function
         //const validateInput = (event) => {}
         if (input.value.trim() != ""){
+            //const inputClasses = input.classList.value
 
                 //if statements - match to class
             if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input)))
@@ -134,7 +135,7 @@ const validateForm = (event) => {
                errorList.push('Numeric fields must be a series of numbers.');
             }
         }
-        else if(input.classList.value.includes('required'))// does required show up as required_size as well. 
+        else if(input.classList.value.includes('required') && (!input.classList.value.includes('_size')))// does required show up as required_size as well. 
         {
             errorList.push('Required fields must have a value that is not empty or whitespace.');
         } // end if - validations

@@ -1,4 +1,4 @@
-/////////
+
 /**
  * 
  * @param {*} event 
@@ -14,86 +14,110 @@ const validateForm = (event) => {
     const dateRegEx = /^\d{2}[\/]\d{2}[\/]\d{4}$/;
     const alphanumericRegEx = /^[A-Za-z0-9]*$/;
     const passwordRegEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*$/
-    // /^[A-Za-z\d\W]$/
  
         //Validation Functions
     /**
      * 
      * @param {*} input 
-     * @returns 
+     * @returns {boolean} - validation for Regular Expression 
      */
     const isRequiredValid = (input) => {
         const test = requiredRegEx.test(input.value.trim());
         return test;
     }
 
+    /**
+     * 
+    * @param {*} input 
+    * @returns {boolean} - validation for Regular Expression 
+    */
     const isAlphabeticValid = (input) => {
         const test = alphabeticRegEx.test(input.value);
         return test;
     }
-
+    /**
+     * 
+    * @param {*} input 
+    * @returns {boolean} - validation for Regular Expression 
+    */
     const isPasswordValid = (input) => {
         const test = passwordRegEx.test(input.value); //At least one uppercase letter, At least one lowercase letter, At least one digit, At least one specal character
         return test;
     }
-
+    /**
+     * 
+    * @param {*} input 
+    * @returns {boolean} - validation for Regular Expression 
+    */
     const isLengthValid = (input) => {
         const ruleLength = input.getAttribute("minlength");
         return input.value.length === parseInt(ruleLength);
     }
-
+    /**
+     * 
+     * @param {*} input 
+    * @returns {boolean} - validation for Regular Expression 
+    */
     const isNumberValid = (input) => {
         const test = numberRegEx.test(input.value);
         return test;
     }
-
+    /**
+     * 
+    * @param {*} input 
+    * @returns {boolean} - validation for Regular Expression 
+    */
     const isphoneValid = (input) => {
         const test = phoneRegEx.test(input.value);
         return test;
     }
-
+    /**
+    * 
+    * @param {*} input 
+    * @returns {boolean} - validation for Regular Expression 
+    */
     const isDateValid = (input) => {
         const test = dateRegEx.test(input.value);
         return test;
 
     }
-
+    /**
+     * 
+     * @param {*} input 
+     * @returns {boolean} - validation for Regular Expression 
+    */
     const isAlphanumericValid = (input) => {
         const test = alphanumericRegEx.test(input.value);
         return test;
     }
-
+    /**
+     * 
+     * @param {*} input 
+     * @returns {boolean} - validation for Regular Expression 
+    */
     const isUsernameLengthValid =(input) => {
         const requiredUsernameLength = 8;
         const inputUsernameLength = input.value.length
         return inputUsernameLength >= requiredUsernameLength
     }
 
-        //Get all forms within the HTML page
-    const forms = document.querySelectorAll('form');
-
-    const errorsDiv = event.target.parentNode.querySelector('.errors');
-    errorsDiv.textContent = ""; // clears out error field for new list
+        //Get all forms within the HTML page////// Do I still need this
+    //const forms = document.querySelectorAll('form');
 
         //targeting specific form to validate
     const form = event.target;
-
-      
-        //Get all inputs within the form
-    const inputs = form.querySelectorAll('input');
+    const errorsDiv = event.target.parentNode.querySelector('.errors');
     const errorList = []; 
+    errorsDiv.textContent = ""; // clears out error field for new list
 
         //Loop a single input through the vaildation errors on the form
-    for (const input of inputs){
-        let requiredCheck = input.classList.value.includes('required')
-
-        //if characters in input field, then do action 
-        //else do no action unless requried
-        //validate Function
-        //const validateInput = (event) => {}
-        if (input.value.trim() != ""){
-            //const inputClasses = input.classList.value
-
+    for (const input of inputs)
+    {
+        //validate inputs
+            //if characters in input field, then do action 
+            //else do no action unless requried
+        if (input.value.trim() != "")
+        {
                 //if statements - match to class
             if(input.classList.value.includes('alphabetic') && (!isAlphabeticValid(input)))
             {
@@ -135,36 +159,39 @@ const validateForm = (event) => {
                errorList.push('Numeric fields must be a series of numbers.');
             }
         }
-        else if(input.classList.value.includes('required') && (!input.classList.value.includes('_size')))// does required show up as required_size as well. 
+            // Select class with required and exclude required_size as well. 
+        else if(input.classList.value.includes('required') && (!input.classList.value.includes('_size')))
         {
             errorList.push('Required fields must have a value that is not empty or whitespace.');
         } // end if - validations
 
     } // end for loop - input
 
-        //error list generating
-        // const errorList = (errorList) => {};
-    if(errorList.length > 0) {
+        // create error list on form
+    if(errorList.length > 0) 
+    {
         const newUnorderedList = document.createElement('ul');
         errorsDiv.appendChild(newUnorderedList);
-         errorsDiv.style = "color:red";
+        errorsDiv.style = "color:red";
 
-        for (const error of errorList){                
+        for (const error of errorList)
+        {                
             const newListItem = document.createElement('li');
             const liText = document.createTextNode(error);
             newListItem.appendChild(liText);
             newUnorderedList.appendChild(newListItem);
         } // end for - error
-
     }
-    else
+    else // will only submit form if no errors in array
     {
         form.submit();
     } // end if
 
 } // end function - validateForm
 
+    // add an addEventListener to each form when submit is clicked
 const formButtons = document.querySelectorAll('form');
-for (const button of formButtons){
+for (const button of formButtons) 
+{
     button.addEventListener('submit', validateForm);
 } // end for - addEventListeners

@@ -1,0 +1,86 @@
+
+
+public class Youth
+{
+	public void static main(String[] args)
+	{
+		System.out.println("Youth");
+	}
+}
+
+import java.util.Scanner;
+
+public class RoundTrip
+{
+    public static void main(String[]args)
+    {
+        String startLine = "***************START Round Trip********\n";
+        String endLine = "\n**************END Round Trip***********";
+        System.out.println(startLine);
+        Scanner console = new Scanner(System.in);
+
+        System.out.println("Good Afternoon, I am looking into your personal information.");
+
+
+        System.out.print("What is your name? ");
+        String name = console.nextLine();
+        String nameFirstLetter = name.substring(0,1);
+
+        System.out.println("Good to meet you \"" + name + "\"!");
+
+        System.out.print("How old are you? ");
+        int age = console.nextInt();
+
+        System.out.println("Next Year you will be " + (age + 1) + "!");
+
+        for (int i = 0; i < age; i++){
+            System.out.print("Long Live "+ nameFirstLetter + name + "!\n");
+        }
+
+        System.out.println(endLine);
+    } // end main()
+} // end class
+
+Tempeture assignment1
+import java.util.Scanner;
+public class TempCalculator
+{
+    public static void main(String[]args)
+    {
+        String startLine = "**************Start Temp Calculator******************\n";
+        String endLine = "\n**************End Temp Calculator******************";
+        Scanner console = new Scanner (System.in);
+
+        System.out.println(startLine);
+        System.out.println("Please enter the temperature reading")
+        Float tempReading = console.nextLine();
+        System.out.println("Please enter the temperature scale of the reading \n Celsius (C) | Fahenheit (F) | Kelvin (K)");
+        String tempScale = console.nextLine();
+        String tempScaleKey = tempScale.subsring(0,1);
+
+        Switch(tempScaleKey)
+        {
+            case c:
+                float fahrenheit = (tempReading * 9 /5)+ 32;
+                float kelvin = tempReading + 273.15;
+                System.out.println("This converts to " + fahrenheit);
+                break;
+            case F:
+                float celsius = (tempReading - 32)*5/9;
+                float Kelvin = (celsius) + 273.15;
+                System.out.println();
+                break;
+            case K:
+                float celsius = tempReading - 273.15;
+                float fahrenheit = (celsius * 9/5) + 32;
+                System.out.println();
+                break;
+            default:
+                System.out.println("Please enter valid input")
+        }
+      
+
+
+        System.out.println(endLine);
+    } //end main
+} // end class

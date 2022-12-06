@@ -228,11 +228,24 @@ public class LogicExercise {
     // Map<Integer, String> hashMap = new HashMap<Integer, String>();
     // hashMap.put(Integer, s);
     //create new HashMap
-    HashMap <String, ArrayList<Integer>> characters = new HashMap<>();
-    //add string to HashMap
+    HashMap <String, ArrayList<Integer>> characterMap = new HashMap <>();
+    //loop through string for char
+
+    for (int i = 0; i<s.length();i++)
+    {
+      //store list of position of letter
+      ArrayList<Integer> intIndex = new ArrayList<>();
+      Character storedChar = s.charAt(i);
+      if(characterMap.containsKey(storedChar))
+      {
+
+      }
+    }
+
     //take out spaces
-    //list out indices in a string
-    //characters.put(s);
+    //loop through string for char of String
+    //add index to Hashmap
+    //if repeat char, update index in Hashmap
 
     return null;
   }

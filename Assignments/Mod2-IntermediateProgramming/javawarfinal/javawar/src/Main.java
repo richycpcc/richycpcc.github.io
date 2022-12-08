@@ -1,8 +1,9 @@
 import java.util.*;
 
 /**
- * @ author: Will Boese, Richy Phongsavath
- * @ version: 1.0
+ * @author: Will Boese, Richy Phongsavath
+ * @version: 1.0
+ * @date: 12/7/2022
  * this program simulates a game of war and prints results to console
  * main method instantiates the deck and shuffles it then calls runGame
  */

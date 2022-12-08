@@ -13,7 +13,9 @@ public class LambdaExercise {
    *
    * @param words the List of Strings to be displayed.
    */
-  public void displayList(List<String> words) {
+  public void displayList(List<String> words)
+  {
+    words.forEach((n) -> System.out.println(n));
 
   }
 
@@ -23,7 +25,19 @@ public class LambdaExercise {
    *
    * @param numbers the List of Strings to be displayed.
    */
-  public void displayIntegers(List<Integer> numbers) {
+  public void displayIntegers(List<Integer> numbers)
+  {
+
+    ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
+    for (int i = 0; i < numbers.size(); i++)
+    {
+      if (numbers.get(i) % 2 == 0)
+      {
+        evenNumbers.add(numbers.get(i));
+      }
+    }
+
+    evenNumbers.forEach((n) -> System.out.println(n));
 
   }
 
@@ -35,7 +49,15 @@ public class LambdaExercise {
    */
   public int sumIntegers(List<Integer> numbers) {
 
-    return -1;
+    int sum = 0;
+    int sum = numbers.stream().mapToInt(i->i).sum();
+    //https://www.techiedelight.com/calculate-sum-elements-list-java/
+    /*
+    for(Integer number: numbers)
+      sum += number;
+    //numbers.forEach((n) -> sum += n;
+    */
+    return sum;
 
   }
 

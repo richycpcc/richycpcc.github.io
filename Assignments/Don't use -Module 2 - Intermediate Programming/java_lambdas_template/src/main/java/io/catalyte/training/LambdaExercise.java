@@ -27,18 +27,13 @@ public class LambdaExercise {
    */
   public void displayIntegers(List<Integer> numbers)
   {
-
-    ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
-    for (int i = 0; i < numbers.size(); i++)
+    numbers.forEach(number->
     {
-      if (numbers.get(i) % 2 == 0)
+      if (number % 2 == 0 && number<100)
       {
-        evenNumbers.add(numbers.get(i));
+        System.out.println(number);
       }
-    }
-
-    evenNumbers.forEach((n) -> System.out.println(n));
-
+    });
   }
 
   /**
@@ -50,13 +45,9 @@ public class LambdaExercise {
   public int sumIntegers(List<Integer> numbers) {
 
     int sum = 0;
-    int sum = numbers.stream().mapToInt(i->i).sum();
-    //https://www.techiedelight.com/calculate-sum-elements-list-java/
-    /*
-    for(Integer number: numbers)
-      sum += number;
-    //numbers.forEach((n) -> sum += n;
-    */
+    int sum = numbers.stream()
+            .mapToInt(i->i).sum();
+
     return sum;
 
   }
@@ -69,8 +60,11 @@ public class LambdaExercise {
    */
   public Double averageInts(int[] ints) {
 
-    return null;
+    IntSummaryStatistics result = list.stream().mapToInt((a) -> a).summaryStatistics();
 
+    return result.getAverage();
+    //https://www.javatpoint.com/java-calculate-average-of-list
+    //https://www.techiedelight.com/calculate-average-of-all-items-list-java/
   }
 
   /**
@@ -81,8 +75,10 @@ public class LambdaExercise {
    * @return the filtered list of users.
    */
   public List<String> filterList(Set<String> customers, List<String> users) {
-
-    return null;
+    //users.removeAll(customers);
+    users.stream().filter(user -> !customers.contains(user))
+            .collect(Collectors.toList());
+    return users;
 
   }
 
@@ -95,7 +91,9 @@ public class LambdaExercise {
    */
   public String[] sortByLetterE(String[] words) {
 
-    return null;
+    Arrays.sort(words,Comparator.comparingInt(word -> (word.toLowerCase().contains("e")?0 : 1)));
+
+    return words;
 
   }
 
@@ -106,8 +104,11 @@ public class LambdaExercise {
    * @return a List of capitalized words.
    */
   public List<String> capitalizeAllWords(ArrayList<String> words) {
+    words.stream()
+            .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase())
+            .collect(Collectors.toList());
 
-    return null;
+    return words;
 
   }
 
@@ -131,8 +132,13 @@ public class LambdaExercise {
    * @return a HashMap containing the minimum and maximum temperatures.
    */
   public HashMap<String, Integer> summarizeWeatherData(List<Integer> t) {
+//https://www.geeksforgeeks.org/finding-minimum-and-maximum-element-of-a-collection-in-java/
 
-    return null;
+    // getting minimum value using min()
+    int minMap = Collections.min(_HashMapTitle);
+
+    // getting maximum value using max()
+    int maxMap = Collections.max(_HashMapTitle);
 
   }
 

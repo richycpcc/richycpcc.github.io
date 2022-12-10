@@ -234,12 +234,12 @@ public class LogicExercise {
     for (int i = 0; i<s.length();i++)
     {
       //store list of position of letter
-      ArrayList<Integer> intIndex = new ArrayList<>();
-      Character storedChar = s.charAt(i);
-      if(characterMap.containsKey(storedChar))
-      {
+      //ArrayList<Integer> intIndex = new ArrayList<>();
+      //Character storedChar = s.charAt(i);
+      //if(characterMap.containsKey(storedChar))
+      //{
 
-      }
+      //}
     }
 
     //take out spaces

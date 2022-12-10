@@ -1,10 +1,12 @@
 package io.catalyte.training;
-
+import java.util.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.IntSummaryStatistics;
 
 public class LambdaExercise {
 
@@ -41,7 +43,7 @@ public class LambdaExercise {
    */
   public int sumIntegers(List<Integer> numbers) {
     int sum = 0;
-    int sum = numbers.stream()
+    sum = numbers.stream()
             .mapToInt(i->i).sum();
 
     return sum;
@@ -55,10 +57,13 @@ public class LambdaExercise {
    * @return the average given as a Double
    */
   public Double averageInts(int[] ints) {
-    IntSummaryStatistics result = list.stream().mapToInt((a) -> a).summaryStatistics();
+    //IntSummaryStatistics avg = ints.stream().mapToInt((a) -> a).summaryStatistics();
+     //return avg.getAverage();
 
-    return result.getAverage();
+    double average = Arrays.stream(ints).asDoubleStream().average().getAsDouble();
 
+
+    return average;
   }
 
   /**
@@ -69,9 +74,7 @@ public class LambdaExercise {
    * @return the filtered list of users.
    */
   public List<String> filterList(Set<String> customers, List<String> users) {
-    //users.removeAll(customers);
-    users.stream().filter(user -> !customers.contains(user))
-            .collect(Collectors.toList());
+    users.removeAll(customers);
     return users;
 
   }
@@ -99,11 +102,11 @@ public class LambdaExercise {
    */
   public List<String> capitalizeAllWords(ArrayList<String> words) {
 
-    words.stream()
+    List<String> collect = words.stream()
             .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase())
             .collect(Collectors.toList());
 
-    return words;
+    return collect;
 
 
   }
@@ -117,7 +120,9 @@ public class LambdaExercise {
    */
   public List<String> filterWords(ArrayList<String> words, Predicate<String> predicate) {
 
-    return null;
+    List<String> newList = words.stream().filter(predicate).collect(Collectors.toList());
+
+    return newList;
 
   }
 
@@ -128,15 +133,19 @@ public class LambdaExercise {
    * @return a HashMap containing the minimum and maximum temperatures.
    */
   public HashMap<String, Integer> summarizeWeatherData(List<Integer> t) {
+    // create variables for min and max temperature
+    int minList = Collections.min(t);
+    int maxList = Collections.max(t);
 
-    return null;
-//https://www.geeksforgeeks.org/finding-minimum-and-maximum-element-of-a-collection-in-java/
+    //create HashMap
+    HashMap<String, Integer> temperatureHashMap = new HashMap<>();
 
-    // getting minimum value using min()
-    int minMap = Collections.min(_HashMapTitle);
+    //add values to HashMap
+    temperatureHashMap.put("Minimum",minList);
+    temperatureHashMap.put("Maximum",maxList);
 
-    // getting maximum value using max()
-    int maxMap = Collections.max(_HashMapTitle);
+    return temperatureHashMap;
+
   }
 
 }

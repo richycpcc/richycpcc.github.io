@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="java-lambdas" />
         <module name="logic-java" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="java-lambdas" target="15" />
       <module name="logic-java" target="15" />
     </bytecodeTargetLevel>
   </component>

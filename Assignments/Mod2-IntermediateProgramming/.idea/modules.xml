@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Mod2-IntermediateProgramming.iml" filepath="$PROJECT_DIR$/.idea/Mod2-IntermediateProgramming.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_lambdas_template/java-lambdas.iml" filepath="$PROJECT_DIR$/java_lambdas_template/java-lambdas.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_logic_template/logic-java.iml" filepath="$PROJECT_DIR$/java_logic_template/logic-java.iml" />
     </modules>
   </component>

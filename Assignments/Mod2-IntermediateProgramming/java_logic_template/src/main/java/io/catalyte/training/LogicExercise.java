@@ -225,29 +225,37 @@ public class LogicExercise {
    * l=[2, 3, 8], e=[1].
    */
   public HashMap<String, ArrayList<Integer>> concordanceForString(String s) {
-    // Map<Integer, String> hashMap = new HashMap<Integer, String>();
-    // hashMap.put(Integer, s);
-    //create new HashMap
-    HashMap <String, ArrayList<Integer>> characterMap = new HashMap <>();
-    //loop through string for char
 
+    HashMap <String, ArrayList<Integer>> characterMap = new HashMap <>();
+
+    //loop through string for char
     for (int i = 0; i<s.length();i++)
     {
-      //store list of position of letter
-      //ArrayList<Integer> intIndex = new ArrayList<>();
-      //Character storedChar = s.charAt(i);
-      //if(characterMap.containsKey(storedChar))
-      //{
+      //create list to store index of character
+      ArrayList<Integer> intIndex = new ArrayList<>();
 
-      //}
-    }
+      //gets the character of the string
+      Character storedChar = s.charAt(i);
+
+      //check if character is already in HashMap
+      if(characterMap.containsKey(storedChar.toString()))
+      {
+        //if character is duplicate, add to list index
+        intIndex.addAll(characterMap.get(storedChar.toString()));
+      }//end if
+
+      //add character to map and list index
+        intIndex.add(i);
+        characterMap.put(storedChar.toString(), intIndex);
+
+    }//end for
 
     //take out spaces
     //loop through string for char of String
     //add index to Hashmap
     //if repeat char, update index in Hashmap
 
-    return null;
+    return characterMap;
   }
 
 }

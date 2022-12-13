@@ -1,7 +1,0 @@
-### eclipse and maven ###
-
-/.classpath
-/.project
-/target/
-.settings/
-/.idea/

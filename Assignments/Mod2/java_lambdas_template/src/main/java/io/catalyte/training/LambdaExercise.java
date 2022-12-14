@@ -120,7 +120,9 @@ public class LambdaExercise {
    */
   public List<String> filterWords(ArrayList<String> words, Predicate<String> predicate) {
 
-    List<String> newList = words.stream().filter(predicate).collect(Collectors.toList());
+    List<String> newList = words.stream()
+            .filter(predicate)
+            .collect(Collectors.toList());
 
     return newList;
 

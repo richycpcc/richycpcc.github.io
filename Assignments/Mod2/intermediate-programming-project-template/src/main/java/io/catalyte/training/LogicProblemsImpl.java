@@ -1,19 +1,30 @@
 package io.catalyte.training;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.List;
+
 import java.util.*;
 
+/**
+ * Class for Logic Problem Methods
+ */
 public class LogicProblemsImpl implements LogicProblems {
   //TODO: Implement all requirements as defined in the project description.
 
 
+    /**
+     * Method calculates the average of a given average to the 2nd decimal place.
+     * @param scores
+     * @return
+     */
     @Override
     public Double average(int[] scores)
     {
         double sum = 0;
-        double average = 0;
+        double average = 0.00;
         int arrayLength = scores.length;
+        double roundedAverage;
 
         if (arrayLength == 0)
         {
@@ -36,25 +47,26 @@ public class LogicProblemsImpl implements LogicProblems {
 
         //calculate average
         average = sum / scores.length;
+        roundedAverage = Math.round(average*100)/100.0;
 
-        return average;
+        return roundedAverage;
     }
-    /*
-    double average = Arrays.stream(scores).asDoubleStream().average().getAsDouble();
-    return average;
-    System.out.println(average);
-    */
+
+    /**
+     * Method gets the count of the last word of a string
+     * @param text
+     * @return
+     */
     @Override
     public int lastWordLength(String text) {
         int lastWordCount = 0;
         boolean emptyString =text.trim().isEmpty();
 
         if ((text.length() == 0) && (emptyString))
-        //(x.length() == 0)
         {
             //throw Illegal Argument Exception if trimmed string is 0;
             throw new IllegalArgumentException("Input must not be an empty String");
-        }
+        } // end if
 
         for (int i = 0;i < text.length();i++)
         {
@@ -71,49 +83,47 @@ public class LogicProblemsImpl implements LogicProblems {
         return lastWordCount;
     }
 
+    /**
+     * Method finds number of combination for climbing 1 to 2 rungs of a given ladder.
+     * @param rungs
+     * @return
+     */
     @Override
     public BigDecimal distinctLadderPaths(int rungs)
     {
         if (rungs == 0 || rungs == 1)
         {
-            return BigDecimal.valueOf(rungs);
+           return BigDecimal.valueOf(rungs);
         }// end if
 
-        if (rungs < 0)
+        else if (rungs < 0)
         {
             throw new IllegalArgumentException("Ladders can't have negative rungs");
         }// end if
-
-        return (distinctLadderPaths(rungs-1).add( distinctLadderPaths(rungs-2)));
-
-
-        /*
-        BigDecimal rung = BigDecimal.valueOf(rungs);
-        BigDecimal[] fibonacciCashe = new BigDecimal [rungs];
-        Arrays.fill(fibonacciCashe,(distinctLadderPaths(rungs +1))); //(rung.add.valueOf(1));
-        if (rungs == 1 || rungs ==0)
+        else
         {
-            return BigDecimal.valueOf(rungs);
+            BigInteger[] f = new BigInteger[(rungs + 1)];
+            f[0] = BigInteger.valueOf(1);
+            f[1] = BigInteger.valueOf(1);
+
+            for (int i = 2; i <= rungs; i++)
+            {
+                f[i] = f[i - 1].add(f[i - 2]);
+            }
+
+            BigDecimal fBigDecimal = new BigDecimal(f[rungs]);
+
+            return fBigDecimal; //BigDecimal.valueOf(f[rungs]);
         }
-        if (rungs < 0)
-        {
-            throw new IllegalArgumentException("Ladders can't have negative rungs");
-        }// end if
+                //(distinctLadderPaths(rungs-2).add( distinctLadderPaths(rungs-1)));
 
-        if (fibonacciCashe[rungs].compareTo(rung)>0)
-        {
-            return fibonacciCashe[rungs];
-        }//end if
-
-        //return (distinctLadderPaths(rungs-1).add( distinctLadderPaths(rungs-2)));
-        BigDecimal nthFibonacciNumber = (distinctLadderPaths(rungs-1).add( distinctLadderPaths(rungs-2)));
-        fibonacciCashe [rungs] = nthFibonacciNumber;
-        return nthFibonacciNumber;
-       // return null;
-
-         */
     }
 
+    /**
+     *
+     * @param strs
+     * @return
+     */
     @Override
     public List<List<String>> groupStrings(String[] strs)
     {

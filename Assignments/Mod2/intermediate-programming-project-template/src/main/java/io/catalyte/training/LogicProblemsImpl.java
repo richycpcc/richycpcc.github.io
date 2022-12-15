@@ -1,3 +1,10 @@
+/*
+* @Author: Richy Phongsavath
+* @Version: 1.0
+* @Date: 12/12/22
+* @Class: CO-CP-Alpha1
+ */
+
 package io.catalyte.training;
 
 import java.math.BigDecimal;

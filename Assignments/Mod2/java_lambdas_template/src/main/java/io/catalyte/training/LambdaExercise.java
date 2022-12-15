@@ -60,8 +60,8 @@ public class LambdaExercise {
     //IntSummaryStatistics avg = ints.stream().mapToInt((a) -> a).summaryStatistics();
      //return avg.getAverage();
 
-    double average = Arrays.stream(ints).asDoubleStream().average().getAsDouble();
-
+    double average;
+    average = Arrays.stream(ints).asDoubleStream().average().getAsDouble();
 
     return average;
   }

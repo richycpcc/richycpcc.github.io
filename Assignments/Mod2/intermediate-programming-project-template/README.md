@@ -27,3 +27,6 @@ Test out LogicProblemsImpl with working solutions to the interface with test fil
 
 ## Contributing
 Feedback is welcome. If you see issues, or have ideas for improvement, please submit feedback!
+
+## Linting 
+The file uses the default IntelliJ format

@@ -47,7 +47,7 @@ public class LogicProblemsImpl implements LogicProblems {
                 //if statement checks if score is less than 0
                 if (score < 0) {
                     //throw Arithmetic exception if not positive number. https://www.javatpoint.com/throw-keyword
-                    throw new ArithmeticException("Scores must be positive");
+                    throw new ArithmeticException("scores must be positive");
                 } else {
                     //add numbers in array to sum
                     sum = sum + score;
@@ -71,15 +71,16 @@ public class LogicProblemsImpl implements LogicProblems {
     @Override
     public int lastWordLength(String text) {
         int lastWordCount = 0;
-        boolean emptyString =text.trim().isEmpty();
 
+        boolean emptyString =text.trim().isEmpty();
+        //
         //checks to see if String is empty
-        if ((text.length() == 0) && (emptyString))
+        if (text.length() == 0 && emptyString)
         {
             //throw Illegal Argument Exception if trimmed string is 0;
-            throw new IllegalArgumentException("Input must not be an empty String");
+            throw new IllegalArgumentException("input must not be an empty string");
         } // end if
-
+        text = text.trim();
         //loops through text.
         for (int i = 0;i < text.length();i++)
         {
@@ -113,7 +114,7 @@ public class LogicProblemsImpl implements LogicProblems {
         }
         else if (rungs < 0) // checks for negative integer and throw exception if true.
         {
-            throw new IllegalArgumentException("Ladders can't have negative rungs");
+            throw new IllegalArgumentException("ladders can't have negative rungs");
         }
         else
         {
@@ -161,7 +162,7 @@ public class LogicProblemsImpl implements LogicProblems {
             //throw exception if Char Array of String is blank;
             if(x.length() == 0)
             {
-                throw new IllegalArgumentException("Strings must not be empty");
+                throw new IllegalArgumentException("strings must not be empty");
             }
 
             //Get the first and last char

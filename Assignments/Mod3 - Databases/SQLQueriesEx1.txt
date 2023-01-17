@@ -1,59 +1,61 @@
-"id"	"class_id"	"student_id"	"grade"
-2	1	3	94
-3	1	4	72
-4	2	1	98
-6	3	1	92
-8	4	4	92
-10	5	4	90
-
-"id"	"name"	"credits"	"code"
-1	"Introduction to Computer Science"	3	"CSCI201"
-2	"Surface Art"	3	"ART100"
-3	"Digital Tools"	3	"ART104"
-4	"Intermediate Algebra"	3	"MTH095"
-5	"Calculus I"	4	"MTH251"
-
-"id"	"first_name"	"last_name"	"username"	"email"
-3	"Abe"	"Horn"	"ahorn"	"ahorn@college.edu"
-4	"Joe"	"Barnes"	"jbarnes"	"jbarnes@college.edu"
-6	"Dan"	"Zanes"	"dzanes"	"dzanes@college.edu"
-1	"Josie"	"Blair"	"jblair"	"jblair21@college.edu"
-
-1.INSERT Into students (first_name, last_name, username, email)
+SELECT * FROM students;
+/*
+--1.
+INSERT Into students (first_name, last_name, username, email)
 VALUES ('Dan', 'Zanes', 'dzanes', 'dzanes@college.edu');
 
-2.UPDATE students
+SELECT * FROM students;
+*/
+
+/*
+--2.
+UPDATE students
 SET email = 'jblair21@college.edu'
 WHERE id = 1;
 
-3.SELECT CONCAT(last_name,' ',first_name ) AS FullName, email AS Email
-From students;
-Order BY last_name
+Select * from students;
+*/
 
-4.SELECT students.first_name, students.last_name,classes.name, grades.grade
+/*
+--3.
+SELECT CONCAT(last_name,' ',first_name ) AS FullName, email AS Email
+FROM students
+ORDER BY last_name;
+*/
+
+/*
+--4.
+SELECT students.first_name, students.last_name,classes.name, grades.grade
 FROM ((grades
 INNER JOIN students ON grades.student_id = students.id) 
 INNER JOIN classes ON grades.class_id = classes.id)
 WHERE students.id =3;
+*/
 
-5. DELETE FROM Students 
-WHERE id = 4
-
+/*
+--5. 
 DELETE FROM Grades 
-WHERE student_id = 4
+WHERE student_id = 4;
 
-6.SELECT CONCAT(first_name,' ',last_name ) AS FullName, classes.name, grades.grade
+DELETE FROM Students 
+WHERE id = 4;
+
+Select * FROM Students;
+*/
+
+/*
+--6.
+SELECT CONCAT(first_name,' ',last_name ) AS FullName, classes.name, grades.grade
 FROM ((grades
 INNER JOIN students ON grades.student_id = students.id) 
 INNER JOIN classes ON grades.class_id = classes.id)
 WHERE grades.class_id =1;
+*/
 
-6.SELECT CONCAT(first_name,' ',last_name ) AS FullName, classes.name, grades.grade
+/*
+--Strech.
+SELECT grades.grade, classes.name, CONCAT(last_name,' ',first_name ) AS FullName 
 FROM ((grades
 INNER JOIN students ON grades.student_id = students.id) 
-INNER JOIN classes ON grades.class_id = classes.id)
-
-7.SELECT grades.grade, classes.name, CONCAT(last_name,' ',first_name ) AS FullName 
-FROM ((grades
-INNER JOIN students ON grades.student_id = students.id) 
-INNER JOIN classes ON grades.class_id = classes.id)
+INNER JOIN classes ON grades.class_id = classes.id);
+*/

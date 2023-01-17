@@ -15,13 +15,21 @@
 ### Foreign Key Relationships
 
 | Table Name  | Foreign Key (FK) Name  | Table Matching FK |
-| --- | --- | --- |
+| --- | --- | --- |    |
 | customers | store_id | stores |
-
+| inventory | store_id | stores |
+| inventory | items_id | items  |
+| purchases | store_id | stores |
+| purchases | customer_id | customers |
+| purchases | payment_type_ id | payment_types |
+| purchase_items | purchase_id | purchase_items |
+| purchase_items | items_id | items|
+| stores    | store_id | inventory |
+| stores   | address_id | address |
 ### Multiple Choice
 
 1. Users are not allowed to add items to purchases where the amount of items bought exceeds the amount of items in the store. This is because:
-    1. There is a Trigger Function preventing new purchases that exceed the current inventory.
+    1. There is a Trigger Function preventing new purchases that exceed the current inventory. **Answer Choice 1**
     2. This will cause a Foreign Key Constraint Violation on the Inventory table.
     3. There is a custom rule on the items table that prevents it from ever having a negative value for the field 'quantity'.
     4. Users are actually allowed to add those purchases.
@@ -33,14 +41,14 @@
     1. It is missing a semi-colon.
     2. Double-quotes do not work with column names with pgAdmin and postgres. 
     3. address_id is an ambiguous field because it is not qualified with a table or alias name (should be s.address_id or stores.address_id).
-    4. This is a valid query that will run without error.
+    4. This is a valid query that will run without error.**Answer Choice 4**
 3. What is the relationship between the stores and customers tables?
     1. Stores is a one-to-one relationship with Customers.
-    2. Stores is a one-to-many relationship with Customers.
-    3. Stores is a many-to-many relationship with Customers.
+    2. Stores is a one-to-many relationship with Customers.**Answer Choice 2**
+    3. Stores is a many-to-many relationship with Customers. 
     4. Stores and Customers are unrelated tables.
 4. What is the relationship between the purchases and items tables?
-    1. The tables have a many-to-many relationship with the purchase_items table acting as a mapping table.
+    1. The tables have a many-to-many relationship with the purchase_items table acting as a mapping table.**Anser Choice 1**
     2. Purchases has a one-to-many relationship with items, as a single purchase can have multiple items in it.
     3. Items has a one-to-many relationship with purchases, as a single item can have multiple purchases.
-    4. Purchases and Items are unrelated tables.
+    4. Purchases and Items are unrelated tables. 

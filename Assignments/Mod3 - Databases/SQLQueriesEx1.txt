@@ -18,7 +18,7 @@ Select * from students;
 
 /*
 --3.
-SELECT CONCAT(last_name,' ',first_name ) AS FullName, email AS Email
+SELECT CONCAT(last_name,' ', first_name ) AS "Name", email AS "Email"
 FROM students
 ORDER BY last_name;
 */
@@ -29,7 +29,7 @@ SELECT students.first_name, students.last_name,classes.name, grades.grade
 FROM ((grades
 INNER JOIN students ON grades.student_id = students.id) 
 INNER JOIN classes ON grades.class_id = classes.id)
-WHERE students.id =3;
+WHERE students.first_name = 'Abe';
 */
 
 /*
@@ -45,16 +45,16 @@ Select * FROM Students;
 
 /*
 --6.
-SELECT CONCAT(first_name,' ',last_name ) AS FullName, classes.name, grades.grade
+SELECT CONCAT(first_name, ' ', last_name ) AS FullName, classes.name, grades.grade
 FROM ((grades
 INNER JOIN students ON grades.student_id = students.id) 
 INNER JOIN classes ON grades.class_id = classes.id)
-WHERE grades.class_id =1;
+WHERE grades.class_id = 1;
 */
 
 /*
 --Strech.
-SELECT grades.grade, classes.name, CONCAT(last_name,' ',first_name ) AS FullName 
+SELECT grades.grade, classes.name, CONCAT(last_name, ' ', first_name ) AS "Full Name" 
 FROM ((grades
 INNER JOIN students ON grades.student_id = students.id) 
 INNER JOIN classes ON grades.class_id = classes.id);

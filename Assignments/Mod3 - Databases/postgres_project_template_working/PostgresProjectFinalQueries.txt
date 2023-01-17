@@ -1,0 +1,135 @@
+--1.
+Select stores.name AS "Store Name", CONCAT(address.street, ' ', address.street2, ' ',address.city,', ',address.state,' ',address.zip) AS "Store address"
+From stores
+INNER JOIN address
+ON stores.address_id = address.id
+ORDER BY stores.name;
+
+--2.
+SELECT stores.name AS "Store Name", SUM(items.price * purchase_items.quantity) AS "Total sales in dollars"
+FROM purchase_items
+INNER JOIN items
+ON purchase_items.item_id = items.id
+INNER JOIN purchases
+ON purchase_items.purchase_id = purchases.id
+INNER JOIN stores
+ON purchases.store_id = stores.id
+GROUP BY stores.name
+ORDER BY stores.name;
+
+--3.
+SELECT stores.name AS "Store name", CONCAT(customers.first_name, ' ', customers.last_name) AS "Member name"
+FROM stores
+INNER JOIN customers
+ON stores.id = customers.store_id
+ORDER BY stores.name;
+
+--4.
+Select stores.name AS "Store name",items.name AS "Item name", inventory.quantity AS "Quanity in this store", items.price AS "Price per unit", items.notes AS "Notes about the unit"
+From inventory
+INNER JOIN stores
+ON inventory.store_id = stores.id
+INNER JOIN items
+ON item_id = items.id
+WHERE stores.name = 'Administaff, Inc.'
+ORDER BY items.name;
+
+--5.
+SELECT TO_CHAR(DATE(purchase_date),'Month') AS "Month of purchase", SUM(purchase_items.quantity*items.price) AS "Total Sales"
+FROM purchases
+INNER JOIN purchase_items
+ON purchases.id = purchase_items.purchase_id
+INNER JOIN stores
+ON purchases.store_id = stores.id
+INNER JOIN items
+ON items.id = purchase_items_id
+WHERE stores.name = 'Administaff, Inc.'
+GROUP BY purchase_date
+ORDER BY purchase_date;
+
+/*
+--Better Version includes YEAR
+SELECT extract(YEAR from purchase_date) AS "Year of purchase",TO_CHAR(DATE(purchase_date),'Month') AS "Month of purchase", SUM(purchase_items.quantity) AS "Total Sales"
+FROM purchases
+INNER JOIN purchase_items
+ON purchases.id = purchase_items.purchase_id
+INNER JOIN stores
+ON purchases.store_id = stores.id
+WHERE stores.name = 'Administaff, Inc.'
+GROUP BY purchase_date
+ORDER BY purchase_date;
+*/
+
+--6.
+SELECT stores.name AS "Store name", payment_types.payment_method AS "Payment method", Count(purchases.id) AS "Count of purchases by payment method"
+FROM purchases
+INNER JOIN stores
+ON purchases.store_id = stores.id
+INNER JOIN payment_types
+ON purchases.payment_type_id = payment_types.id
+WHERE stores.name = 'Benchmark Electronics, Inc.'
+GROUP BY payment_types.payment_method,stores.name
+ORDER BY payment_types.payment_method;
+
+--7.
+SELECT stores.name AS "Store name", items.name AS "Item Name",inventory.quantity AS "Quantity of Item in that store"
+FROM inventory
+INNER JOIN stores
+ON inventory.store_id = stores.id
+INNER JOIN items
+ON inventory.item_id = items.id
+WHERE inventory.quantity <10
+ORDER BY stores.name;
+
+--8.
+SELECT CONCAT(customers.first_name, ' ', customers.last_name) AS "Members first and last name", purchases.purchase_date AS "Purchase date", items.name AS "Name of item purchased", payment_types.payment_method AS "Payment type used", purchase_items.quantity AS "Quantity purchased"
+FROM purchases
+INNER JOIN customers
+ON purchases.customer_id = customers.id
+INNER JOIN payment_types
+ON purchases.payment_type_id = payment_types.id
+INNER JOIN purchase_items
+ON purchases.id = purchase_items.purchase_id
+INNER JOIN items
+ON purchase_items.item_id = items.id
+WHERE customers.first_name = 'Alfred' AND customers.last_name = 'Poggi'
+ORDER BY purchases.purchase_date DESC;
+
+--9.
+UPDATE payment_types
+SET id =(
+	SELECT payment_types.id
+ 	FROM payment_types
+ 	WHERE payment_types.payment_method  = 'credit'
+ 	)
+WHERE id =(
+	Select payment_types.id
+	FROM payment_types
+	Where payment_types.payment_method = 'apple pay'
+	)
+
+--Incorrect Query
+UPDATE purchases
+SET payment_type.payment_method  = 'credit'
+WHERE payment_type.payment_method = 'apple pay'
+
+--10.
+DELETE FROM payment_types WHERE payment_types.payment_method = 'apple pay';
+
+--11.
+INSERT INTO items(name, price, notes)
+VALUES ('Frosted Flakes', 5, 'They''re Grate!');
+
+--12. 
+INSERT INTO inventory(store_id, item_id, quantity)
+SELECT stores.id, items.id, 50
+FROM stores, items
+WHERE stores.name ILIKE '%a%' AND items.name ='Frosted Flakes'
+
+--13.
+UPDATE items
+Set Notes = 'Incorrect (Current) Notes - They''re Grate!
+			Correct Notes (please update to this)- They''re Gr-r-reat'
+Where items.name = 'Frosted Flakes'
+
+

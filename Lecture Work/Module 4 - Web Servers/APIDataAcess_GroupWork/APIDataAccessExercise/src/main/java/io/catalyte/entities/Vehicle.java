@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Entity
-//@Table(name = "Vehicle")
+@Table(name = "Vehicle")
 public class Vehicle {
 
 
@@ -27,6 +27,10 @@ public class Vehicle {
 
     //Public declaration of class
     public Vehicle(){}
+
+    public Vehicle(String model) {
+        this.model = model;
+    }
 
     //Constructor
     public Vehicle( Long id,String type, String make, String model, Integer year)

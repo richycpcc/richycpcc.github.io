@@ -6,4 +6,5 @@ import io.catalyte.springboot.entities.Users;
 
 @Repository
 public interface UsersRepository extends JpaRepository <Users, Long>{
+    Boolean existsByEmail(String email);
 }

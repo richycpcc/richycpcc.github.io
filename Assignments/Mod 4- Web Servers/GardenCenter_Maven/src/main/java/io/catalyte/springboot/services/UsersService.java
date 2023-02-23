@@ -1,18 +1,21 @@
 package io.catalyte.springboot.services;
 
+
 import io.catalyte.springboot.entities.Users;
 
 import java.util.List;
-import java.util.Optional;
+
 
 public interface UsersService {
-    List<Users> GetUsers();
+    List<Users> GetAllUsers(Users users);
 
-    Optional<Users> GetUsersById(Long id);
+    Users GetUserById(Long id);
 
-    void AddUser(Users users);
+    Users AddUser(Users users);
 
-    void UpdateUser(Users users);
+    Users UpdateUserById(Long id, Users users);
 
     void DeleteUserById(Long id);
+
+
 }

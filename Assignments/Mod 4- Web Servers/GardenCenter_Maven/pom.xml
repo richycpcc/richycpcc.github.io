@@ -37,7 +37,11 @@
 
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+
+
+
+
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -50,11 +54,20 @@
             <version>3.0.2</version>
             <scope>test</scope>
         </dependency>
+
+
+
+
         <dependency>
             <artifactId>validation-api</artifactId>
             <groupId>javax.validation</groupId>
             <version>2.0.1.Final</version>
         </dependency>
+
+
+
+
+
     </dependencies>
 
 

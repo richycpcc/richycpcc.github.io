@@ -62,7 +62,7 @@ class OrdersServiceImplTest {
 
 
     @Test
-    public void getAllCustomers() {
+    public void getAllOrders() {
         List<Orders> result = ordersServiceImpl.GetAllOrders(new Orders(Date.from(LocalDate.parse("2023-02-20").atStartOfDay(ZoneId.systemDefault()).toInstant()), BigDecimal.valueOf(100.00)));
         assertEquals(testList, result);
     }

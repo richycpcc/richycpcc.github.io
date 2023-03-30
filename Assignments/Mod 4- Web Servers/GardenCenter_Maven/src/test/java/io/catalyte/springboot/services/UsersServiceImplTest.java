@@ -166,13 +166,13 @@ public class UsersServiceImplTest {
 
     @Test
     public void addUser() {
-        Users result = usersServiceImpl.AddUser(testUsers);
+        Users result = usersServiceImpl.addUser(testUsers);
         assertEquals(testUsers, result);
     }
     @Test
     public void addUserEmailConflict(){
         when(usersRepository.existsByEmail(any(String.class))).thenReturn(true);
-        assertThrows(Conflict.class,() -> usersServiceImpl.AddUser(testUsers));
+        assertThrows(Conflict.class,() -> usersServiceImpl.addUser(testUsers));
     }
 
     @Test
@@ -180,7 +180,7 @@ public class UsersServiceImplTest {
         when(usersRepository.save(any(Users.class))).thenThrow(
                 new EmptyResultDataAccessException("Database unavailable", 0));
         assertThrows(ServiceUnavailable.class,
-                () -> usersServiceImpl.AddUser(testUsers));
+                () -> usersServiceImpl.addUser(testUsers));
     }
 
 

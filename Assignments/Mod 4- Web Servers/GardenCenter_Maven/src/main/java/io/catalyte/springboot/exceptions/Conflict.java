@@ -1,6 +1,6 @@
 package io.catalyte.springboot.exceptions;
 
-public class Conflict extends RuntimeException {
+public class Conflict extends UniqueFieldViolation {
     public Conflict() {
     }
 

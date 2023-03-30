@@ -25,6 +25,7 @@ public class StringConstants {
     public static final String LOGGER_DELETE_REQUEST_RECEIVED = " Delete request received for id: ";
     public static final String EMAIL_CONFLICT = "The email address is already in use";
     public static final String BAD_REQUEST_EMAIL = "Email has already been used: ";
+    public static final String BAD_REQUEST = "Request is bad: ";
     public static final String BAD_REQUEST_PASSWORD = "The password must have at least 8 characters";
     public static final String BAD_REQUEST_ID = "The id must match id of path parameter";
     public static final String BAD_REQUEST_STATE = "The state must be valid 2 letter US state abbreviation";
@@ -33,6 +34,5 @@ public class StringConstants {
     public static final String BAD_REQUEST_PRICE = "The price must have exactly 2 decimal places";
     public static final String BAD_REQUEST_ORDER_TOTAL = "The order total must have 2 decimal places";
     public static final String BAD_REQUEST_CUSTOMER_NOT_FOUND = "The customer does not exist in the database";
-
 
 }

@@ -34,11 +34,11 @@ public class Customers {
     public Customers(){
 
     }
-    public Customers(Long id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
+//    public Customers(Long id, String name, String email) {
+//        this.id = id;
+//        this.name = name;
+//        this.email = email;
+//    }
 
     public Customers(String name, String email, Address address) {
         this.name = name;

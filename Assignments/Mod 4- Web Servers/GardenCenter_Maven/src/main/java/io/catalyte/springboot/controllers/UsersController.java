@@ -63,7 +63,7 @@ public class UsersController {
     public ResponseEntity<Users> save(@Valid @RequestBody Users users)
     {
         logger.info(new Date() + " Post request received " + users.toString());
-        return new ResponseEntity<>(usersService.AddUser(users), HttpStatus.CREATED);
+        return new ResponseEntity<>(usersService.addUser(users), HttpStatus.CREATED);
     }
 
 

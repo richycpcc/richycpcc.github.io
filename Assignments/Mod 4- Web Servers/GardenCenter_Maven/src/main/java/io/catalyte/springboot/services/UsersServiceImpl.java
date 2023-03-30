@@ -120,21 +120,22 @@ public class UsersServiceImpl implements UsersService
         {
             throw new Conflict(BAD_REQUEST_PASSWORD);
         }
-            try {
-                Users usersFromDb = usersRepository.findById(id).orElse(null);
-                if (usersFromDb != null) {
-                    //check if email already exists
-                    //**check email doesn't work. Says can't find Id??
-                    emailAlreadyExists = usersRepository.existsByEmail(users.getEmail());
-                    if (!emailAlreadyExists) {
-                        return usersRepository.save(users);
-                    }
+
+        try {
+            Users usersFromDb = usersRepository.findById(id).orElse(null);
+            if (usersFromDb != null) {
+                //check if email already exists
+                //**check email doesn't work. Says can't find Id??
+                emailAlreadyExists = usersRepository.existsByEmail(users.getEmail());
+                if (!emailAlreadyExists) {
+                    return usersRepository.save(users);
                 }
-            } catch (Exception e) {
-                throw new ServiceUnavailable(e);
             }
-            // if we made it down to this point, we did not find the User
-            throw new ResourceNotFound("Could not locate a Users with the id: " + id);
+        } catch (Exception e) {
+            throw new ServiceUnavailable(e);
+        }
+        // if we made it down to this point, we did not find the User
+        throw new ResourceNotFound("Could not locate a Users with the id: " + id);
 
         }
 
@@ -144,14 +145,14 @@ public class UsersServiceImpl implements UsersService
      * @param users- the User to write.
      * @return - the new User
      */
-    public Users AddUser(Users users)
+    public Users addUser(Users users)
     {
         //if password > 8, then throw error
         int passwordLength = users.getPassword().length();
         System.out.println(passwordLength);
         if (passwordLength < 8)
         {
-            throw new Conflict(BAD_REQUEST_PASSWORD);
+            throw new BadRequest(BAD_REQUEST_PASSWORD);
         }
         try
         {
@@ -164,10 +165,12 @@ public class UsersServiceImpl implements UsersService
         }
         catch (Exception e)
         {
+
             throw new ServiceUnavailable(e);
         }
         //if made it to this point, email in not unique
         throw new Conflict(EMAIL_CONFLICT);
+
 
     }
 

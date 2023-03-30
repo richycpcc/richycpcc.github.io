@@ -118,7 +118,7 @@ public class CustomersServiceImpl implements CustomersService{
             {
                 //check if email already exists
                 //**check email doesn't work. Says can't find Id??
-                emailAlreadyExists = customersRepository.existsByEmail(customers.getEmail());
+                //emailAlreadyExists = customersRepository.existsByEmail(customers.getEmail());
                 if(!emailAlreadyExists)
                 {
                     return customersRepository.save(customers);

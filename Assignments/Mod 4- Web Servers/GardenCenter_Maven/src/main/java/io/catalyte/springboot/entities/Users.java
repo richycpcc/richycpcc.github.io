@@ -103,17 +103,17 @@ public class Users {
         this.password = password;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Users users)) return false;
-        return Objects.equals(id, users.id) && Objects.equals(name, users.name) && Objects.equals(title, users.title) && Objects.equals(roles, users.roles) && Objects.equals(email, users.email) && Objects.equals(password, users.password);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, title, roles, email, password);
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (!(o instanceof Users users)) return false;
+//        return Objects.equals(id, users.id) && Objects.equals(name, users.name) && Objects.equals(title, users.title) && Objects.equals(roles, users.roles) && Objects.equals(email, users.email) && Objects.equals(password, users.password);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, name, title, roles, email, password);
+//    }
 
     @Override
     public String toString() {

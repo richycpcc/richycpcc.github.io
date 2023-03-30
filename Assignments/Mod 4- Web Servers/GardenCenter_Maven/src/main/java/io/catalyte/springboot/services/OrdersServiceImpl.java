@@ -3,6 +3,7 @@ package io.catalyte.springboot.services;
 
 
 import io.catalyte.springboot.exceptions.BadDataResponse;
+import io.catalyte.springboot.exceptions.BadRequest;
 import io.catalyte.springboot.exceptions.ResourceNotFound;
 import io.catalyte.springboot.exceptions.ServiceUnavailable;
 import io.catalyte.springboot.repositories.OrdersRepository;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static io.catalyte.springboot.constants.StringConstants.BAD_REQUEST_PRICE;
 
 @Service
 public class OrdersServiceImpl implements OrdersService {
@@ -111,6 +114,9 @@ public class OrdersServiceImpl implements OrdersService {
         {
             throw new BadDataResponse("Order ID must match the ID specified in the URL");
         }
+        if(orders.getOrderTotal().scale() != 2){
+            throw new BadRequest(BAD_REQUEST_PRICE);//BAD_REQUEST_PRICE);
+        }
         try
         {
             Orders ordersFromDb = ordersRepository.findById(id).orElse(null);
@@ -134,6 +140,9 @@ public class OrdersServiceImpl implements OrdersService {
      */
     public Orders AddOrder(Orders orders)
     {
+        if(orders.getOrderTotal().scale() != 2){
+            throw new BadRequest(BAD_REQUEST_PRICE);//BAD_REQUEST_PRICE);
+        }
         try
         {
             return ordersRepository.save(orders);

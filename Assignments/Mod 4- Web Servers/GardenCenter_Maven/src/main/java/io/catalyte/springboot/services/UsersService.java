@@ -11,7 +11,7 @@ public interface UsersService {
 
     Users GetUserById(Long id);
 
-    Users AddUser(Users users);
+    Users addUser(Users users);
 
     Users UpdateUserById(Long id, Users users);
 

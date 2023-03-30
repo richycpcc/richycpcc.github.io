@@ -10,8 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static io.catalyte.springboot.constants.StringConstants.EMAIL_CONFLICT;
-import static io.catalyte.springboot.constants.StringConstants.SKU_CONFLICT;
+import static io.catalyte.springboot.constants.StringConstants.*;
 
 
 @Service
@@ -111,7 +110,7 @@ public class ProductsServicesImpl implements ProductsService
         }
         // check if price is valid
         if(products.getPrice().scale() != 2){
-            throw new BadDataResponse("Format of price is not correct");//BAD_REQUEST_PRICE);
+            throw new BadRequest(BAD_REQUEST_PRICE);
         }
 
         try
@@ -120,9 +119,10 @@ public class ProductsServicesImpl implements ProductsService
             if(productsFromDb != null)
             {
                 // if the given sku is not changed or given sku is not same as different product's sku, update this product
-              // if(productsFromDb.getSku().equals(products.getSku()) || !productsRepository.existsBySku(products.getSku())){
+               if(productsFromDb.getSku().equals(products.getSku()) || !productsRepository.existsBySku(products.getSku())) {
 
-                    return productsRepository.save(products);
+                   return productsRepository.save(products);
+               }
             }
         }
         catch (Exception e)
@@ -141,7 +141,7 @@ public class ProductsServicesImpl implements ProductsService
     public Products AddProduct(Products products)
     {
         if(products.getPrice().scale() != 2){
-            throw new BadDataResponse("Format of price is not correct");//BAD_REQUEST_PRICE);
+            throw new BadRequest(BAD_REQUEST_PRICE);//BAD_REQUEST_PRICE);
         }
         try
         {

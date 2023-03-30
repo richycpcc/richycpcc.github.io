@@ -1,7 +1,11 @@
 <header>
+	<script>
+		const siteLocation = location.origin;
+		document.getElementById("linkHome").setAttribute("href",siteLocation + "/web/personalwebpage/" )
+	</script>
     <h1 id="headtitle">Richy Phongsavath's Rich Pandas | CP-CO-01</h1>
 	<nav>
-		<a href="https://rphongsavath.gitlab.io/web/personalwebpage/index.html">Home</a>
+		<a id="linkHome" >Home</a>
 		 ~ <a href="https://rphongsavath.gitlab.io/web/personalwebpage/introduction.html">Introduction</a>
 		 ~ <a href="https://rphongsavath.gitlab.io/web/personalwebpage/contract.html">Contract</a>
 		 ~ <a href="https://rphongsavath.gitlab.io/web/personalwebpage/about_us.html">Team</a>
